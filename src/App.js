@@ -1,12 +1,12 @@
-import "./App.css";
-import Questions from "./components/questions";
+import './App.css'
+import Questions from './components/questions/questions'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <Questions></Questions>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
