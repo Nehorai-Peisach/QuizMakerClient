@@ -1,6 +1,6 @@
 import React from "react";
 import Answer from "./answer";
-import "./answerSection.css";
+import "../../../styles/editQuestion/innerStyles/answerSection.css";
 
 const answerSection = (props) => {
   return (

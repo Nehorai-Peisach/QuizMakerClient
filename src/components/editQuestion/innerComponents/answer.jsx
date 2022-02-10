@@ -1,5 +1,5 @@
 import React from "react";
-import "./answer.css";
+import "../../../styles/editQuestion/innerStyles/answer.css";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
