@@ -7,7 +7,7 @@
   padding: 0;
   border: none;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
 
 .container-fluid .panel .panel-heading {
@@ -30,7 +30,7 @@
 
 .container-fluid .panel .panel-heading .btn:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .container-fluid .panel .panel-heading .form-horizontal .form-group {
@@ -51,7 +51,7 @@
 
 .container-fluid .panel .panel-heading .form-horizontal .form-control:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
 }
 
@@ -115,7 +115,7 @@
 
 .container-fluid .panel .panel-body .table tbody .action-list li a:hover {
   -webkit-box-shadow: 0 0 5px #ddd;
-          box-shadow: 0 0 5px #ddd;
+  box-shadow: 0 0 5px #ddd;
 }
 
 .container-fluid .panel .panel-footer {
@@ -149,6 +149,6 @@
   color: #fff;
   background-color: #000;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 /*# sourceMappingURL=questions.css.map */
