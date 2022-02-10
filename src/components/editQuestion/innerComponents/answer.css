@@ -1,0 +1,12 @@
+.answer_main{
+display: grid;
+grid-template-columns: 1fr 10fr 3fr ;
+justify-content: center;
+gap: 3%;
+margin-left: 5%;
+}
+.answer_btn_delete{
+width: 25%;
+height: 20%;
+text-justify:auto;
+}
