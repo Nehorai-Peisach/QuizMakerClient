@@ -1,0 +1,11 @@
+.tagsSection__main{
+display: flex;
+flex-direction: row;
+justify-content: center;
+
+}
+
+.tagsSection__input{
+    margin-left: 10px;
+background-color: rgba(184, 134, 11,0.4);
+}
