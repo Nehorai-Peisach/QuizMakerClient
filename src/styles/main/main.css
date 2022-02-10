@@ -1,0 +1,262 @@
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5rem;
+  height: 100vh;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background: #171f36;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+aside .title {
+  margin: 1rem 1rem 4rem 0;
+}
+
+aside .title a {
+  text-decoration: none;
+  height: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside .title a .logo {
+  padding-left: 0.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+aside .title a span {
+  font-size: 0;
+  visibility: collapse;
+}
+
+aside .nav-main-menu {
+  width: 100%;
+}
+
+aside .nav-main-menu .nav-text {
+  font-size: 0;
+  visibility: collapse;
+}
+
+aside .nav-main-menu .nav-icon {
+  font-size: 2rem;
+}
+
+aside .nav-main-menu > .nav-item {
+  padding-top: 5rem;
+}
+
+aside .nav-main-menu .nav-container .nav-caterogy {
+  padding: 1rem;
+}
+
+aside .nav-main-menu .nav-container .nav-caterogy .nav-textAndIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside .nav-main-menu .nav-container .nav-caterogy .nav-sub {
+  height: 0;
+  visibility: collapse;
+}
+
+aside:hover {
+  width: 30rem;
+}
+
+aside:hover .title a {
+  text-decoration: none;
+  height: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside:hover .title a .logo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+aside:hover .title a span {
+  overflow: hidden;
+  font-size: 2rem;
+  font-weight: bold;
+  visibility: visible;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+aside:hover .title a:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+
+aside:hover .nav-main-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 80%;
+}
+
+aside:hover .nav-main-menu > .nav-item {
+  padding-top: 5rem;
+}
+
+aside:hover .nav-main-menu > .nav-item .nav-text {
+  font-size: 1.5rem;
+  visibility: visible;
+}
+
+aside:hover .nav-main-menu .nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+aside:hover .nav-main-menu .nav-container .nav-caterogy {
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+aside:hover .nav-main-menu .nav-container .nav-caterogy .nav-textAndIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+aside:hover .nav-main-menu .nav-container .nav-caterogy .nav-textAndIcon .nav-text {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  visibility: visible;
+}
+
+aside:hover .nav-main-menu .nav-container .nav-caterogy .nav-textAndIcon .nav-text:hover,
+aside:hover .nav-main-menu .nav-container .nav-caterogy .nav-textAndIcon .nav-icon:hover {
+  cursor: default;
+  font-weight: 400;
+}
+
+aside:hover .nav-main-menu .nav-container .nav-caterogy .nav-sub {
+  height: 0;
+  visibility: collapse;
+}
+
+aside:hover .nav-main-menu .nav-caterogy:hover {
+  background-color: #ccc;
+  color: black;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+aside:hover .nav-main-menu .nav-caterogy:hover .arrow-icon {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+aside:hover .nav-main-menu .nav-caterogy:hover .nav-sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: auto;
+  visibility: visible;
+}
+
+aside:hover .nav-main-menu .nav-caterogy:hover .nav-sub .nav-text {
+  font-size: 1.5rem;
+  visibility: visible;
+}
+
+.nav-item {
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav-item:hover {
+  font-weight: 500;
+}
+
+.nav-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+  left: 5rem;
+  width: calc(100% - 5rem);
+}
+/*# sourceMappingURL=main.css.map */
