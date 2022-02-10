@@ -1,5 +1,5 @@
 import React from "react";
-import "./tagsSection.css";
+import "../../../styles/editQuestion/innerStyles/tagsSection.css";
 
 const tagsSection = (props) => {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import FirstSection from "./innerComponents/firstSection";
 import AnswerSection from "./innerComponents/answerSection";
 import TagsSection from "./innerComponents/tagsSection";
+import "../../styles/editQuestion/innerStyles/editQuestion.css";
 
 const editQuestion = (props) => {
 
