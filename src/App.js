@@ -1,12 +1,14 @@
-import './App.css'
-import Questions from './components/questions/questions'
+import './App.css';
+import Main from './components/main';
+import Questions from './components/questions/questions';
 
 const App = () => {
   return (
     <div className='App'>
-      <Questions></Questions>
+      <Main></Main>
+      {/* <Questions></Questions> */}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
