@@ -21,11 +21,13 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "watch:sass": "node-sass src/styles/main.scss src/styles/css/style.css -w",
+    "devserver": "live-server public",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "devStart": "nodemon app.js"
+    "devstart": "npm-run-all --parallel  devserver watch:sass start"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +48,8 @@
     ]
   },
   "devDependencies": {
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.1",
     "@types/react": "^17.0.0"
   }
 }

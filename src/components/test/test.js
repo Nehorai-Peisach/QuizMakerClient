@@ -1,4 +1,3 @@
-import 'styles/test/test.css';
 import TestHeader from './testHeader';
 import TestBody from './testBody';
 import TestFotter from './testFotter';

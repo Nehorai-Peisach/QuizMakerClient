@@ -1,39 +1,88 @@
-import 'styles/main/main.css';
 import 'boxicons';
 import MenuItem from './menuItem';
 import SubMenuItem from './subMenuItem';
-import { CgAtlasian, CgFileDocument, CgAddR, CgCarousel, CgSmileMouthOpen } from 'react-icons/cg';
-import { RiLogoutBoxLine } from 'react-icons/ri';
-import { HiOutlineDocumentReport } from 'react-icons/hi';
-import { AiOutlineQuestionCircle } from 'react-icons/ai';
 
 const Main = (props) => {
   return (
     <div>
-      <aside>
-        <div className='title'>
-          <a href='#'>
-            <CgAtlasian className='logo' />
-            <span>QuizMaker</span>
+      <div class='l-navbar' id='navbar'>
+        <nav class='nav'>
+          <div>
+            <div class='nav__brand'>
+              <ion-icon name='menu-outline' class='nav__toggle' id='nav-toggle'></ion-icon>
+              <a href='#' class='nav__logo'>
+                Bedimcode
+              </a>
+            </div>
+            <div class='nav__list'>
+              <a href='#' class='nav__link active'>
+                <ion-icon name='home-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Dashboard</span>
+              </a>
+              <a href='#' class='nav__link'>
+                <ion-icon name='chatbubbles-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Messenger</span>
+              </a>
+
+              <div class='nav__link collapse'>
+                <ion-icon name='folder-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Projects</span>
+
+                <ion-icon name='chevron-down-outline' class='collapse__link'></ion-icon>
+
+                <ul class='collapse__menu'>
+                  <a href='#' class='collapse__sublink'>
+                    Data
+                  </a>
+                  <a href='#' class='collapse__sublink'>
+                    Group
+                  </a>
+                  <a href='#' class='collapse__sublink'>
+                    Members
+                  </a>
+                </ul>
+              </div>
+
+              <a href='#' class='nav__link'>
+                <ion-icon name='pie-chart-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Analytics</span>
+              </a>
+              <div class='nav__link collapse'>
+                <ion-icon name='people-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Team</span>
+
+                <ion-icon name='chevron-down-outline' class='collapse__link'></ion-icon>
+
+                <ul class='collapse__menu'>
+                  <a href='#' class='collapse__sublink'>
+                    Data
+                  </a>
+                  <a href='#' class='collapse__sublink'>
+                    Group
+                  </a>
+                  <a href='#' class='collapse__sublink'>
+                    Members
+                  </a>
+                </ul>
+              </div>
+              <a href='#' class='nav__link'>
+                <ion-icon name='settings-outline' class='nav__icon'></ion-icon>
+                <span class='nav__name'>Settings</span>
+              </a>
+            </div>
+          </div>
+
+          <a href='#' class='nav__link'>
+            <ion-icon name='log-out-outline' class='nav__icon'></ion-icon>
+            <span class='nav__name'>Log Out</span>
           </a>
-        </div>
-        <div className='nav-main-menu'>
-          <MenuItem icon={<CgFileDocument />} text='Quizes'>
-            <SubMenuItem icon={<CgCarousel />} text='Manage Quizes' link='#' />
-            <SubMenuItem icon={<CgAddR />} text='Create New Quiz' link='#' />
-          </MenuItem>
-          <MenuItem icon={<AiOutlineQuestionCircle />} text='Questions'>
-            <SubMenuItem icon={<CgCarousel />} text='Manage Questions' link='#' />
-            <SubMenuItem icon={<CgAddR />} text='Create New Question' link='#' />
-          </MenuItem>
-          <MenuItem icon={<HiOutlineDocumentReport />} text='Reports'>
-            <SubMenuItem icon={<CgFileDocument />} text='Report By Quiz' link='#' />
-            <SubMenuItem icon={<CgSmileMouthOpen />} text='Report By Student' link='#' />
-          </MenuItem>
-          <SubMenuItem icon={<RiLogoutBoxLine />} text='Log out' link='#' />
-        </div>
-      </aside>
-      <section>{props.children}</section>
+        </nav>
+      </div>
+
+      <h1>Componentes</h1>
+      <script src='https://unpkg.com/ionicons@5.1.2/dist/ionicons.js'></script>
+
+      <script src='assets/js/main.js'></script>
     </div>
   );
 };

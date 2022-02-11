@@ -1,4 +1,3 @@
-import 'styles/App.css';
 import Main from 'components/main/main';
 import Test from 'components/test/test';
 
