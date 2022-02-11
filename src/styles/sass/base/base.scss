@@ -1,3 +1,21 @@
+:root {
+  --nav-width: 92px;
+
+  /*===== Colores =====*/
+  --first-color: #0c5df4;
+  --bg-color: #12192c;
+  --sub-color: #b6cefc;
+  --white-color: #fff;
+
+  /*===== Fuente y tipografia =====*/
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
 * {
   margin: 0;
   padding: 0;
