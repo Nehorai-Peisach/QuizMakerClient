@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAUA,AAAA,eAAe,CAAC;EACd,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,OAAO;CAU/B;;AAZD,AAGE,eAHa,CAGb,gBAAgB,CAAC;EACf,iBAAiB,EAAE,CAAC;EACpB,YAAY,EAAE,GAAG;EACjB,aAAa,EAAE,EAAE;CAClB;;AAPH,AAQE,eARa,CAQb,iBAAiB,CAAC;EAChB,iBAAiB,EAAE,CAAC;EACpB,UAAU,EAAE,IAAI;CACjB",
-    "sources": [
-        "textBlock.scss"
-    ],
-    "names": [],
-    "file": "textBlock.css"
-}

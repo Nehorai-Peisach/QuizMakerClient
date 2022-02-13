@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../styles/sass/newText/general.scss";
 import TextBlock from "components/textBlock";
 const GeneralTestDetails = (props) => {
   return (
