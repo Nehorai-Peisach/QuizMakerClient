@@ -1,0 +1,21 @@
+.textBlock_main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+}
+
+.textBlock_main .textBlock_title {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  padding-right: 5%;
+}
+
+.textBlock_main .textBlock_editor {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  min-height: 25vh;
+}
+/*# sourceMappingURL=textBlock.css.map */

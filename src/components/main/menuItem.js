@@ -1,4 +1,4 @@
-import { CgChevronRight } from 'react-icons/cg';
+import { CgChevronRight } from "../../../node_modules/react-icons/cg";
 import SubMenuItem from './subMenuItem';
 
 const MenuItem = (props) => {
