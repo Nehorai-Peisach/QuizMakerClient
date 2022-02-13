@@ -1,0 +1,25 @@
+.passingTest_main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 10fr;
+
+    .passingTest_inputTitle {
+      grid-column-start: 1;
+      justify-self: end;
+      padding-right: 5%;
+    }
+    .passingTest_input {
+      grid-column-start: 2;
+    }
+  }
+  .passingTest_body {
+    grid-column: 1/3;
+    grid-row-start: 2;
+  }
+
+.passingTest_mainTitle {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  background-color: hsl(22, 22%, 23%);
+}
