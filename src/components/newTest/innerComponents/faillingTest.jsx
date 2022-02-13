@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../styles/sass/newText/passingTest.scss";
 import TextBlock from "components/textBlock";
 
 const FaillingTest=(props)=>{
