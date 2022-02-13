@@ -1,36 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-:root {
-  --nav-width: 92px;
-  /*===== Colores =====*/
-  --first-color: #0c5df4;
-  --bg-color: #12192c;
-  --sub-color: #b6cefc;
-  --white-color: #fff;
-  /*===== Fuente y tipografia =====*/
-  --body-font: 'Poppins', sans-serif;
-  --normal-font-size: 1rem;
-  --small-font-size: 0.875rem;
-  /*===== z index =====*/
-  --z-fixed: 100; }
-
-* {
-  margin: 0;
-  padding: 0; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
-
-/*===== GOOGLE FONTS =====*/
 /*===== VARIABLES CSS =====*/
 :root {
-  --nav-width: 92px;
+  --nav-width: 5.5rem;
   /*===== Colores =====*/
-  --first-color: #0c5df4;
+  --first-color: #7aa8ff;
   --bg-color: #12192c;
   --sub-color: #b6cefc;
   --white-color: #fff;
@@ -50,7 +23,7 @@ code {
 body {
   position: relative;
   margin: 0;
-  padding: 2rem 0 0 6.75rem;
+  padding: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s; }
@@ -63,11 +36,15 @@ ul {
   padding: 0;
   list-style: none; }
 
-a {
+a,
+a:active,
+a:hover,
+a:focus,
+a:link,
+a:visited {
   text-decoration: none; }
 
-/*===== l NAV =====*/
-.l-navbar {
+.nav-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -76,16 +53,36 @@ a {
   background-color: var(--bg-color);
   color: #fff;
   padding: 1.5rem 1.5rem 2rem;
-  transition: 0.5s;
-  z-index: var(--z-fixed); }
+  z-index: var(--z-fixed);
+  transition: 0.5s ease-in-out; }
 
-/*===== NAV =====*/
+.nav-expander {
+  width: calc(var(--nav-width) + 9.25rem); }
+
+.main-component {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: 5rem;
+  transition: 0.5s ease-in-out; }
+
+.comp-expander {
+  padding-left: calc(var(--nav-width) + 9.25rem); }
+
+.bot {
+  justify-self: end; }
+
 .nav {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden; }
+  overflow: hidden;
+  user-select: none; }
+  .nav__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
   .nav__brand {
     display: grid;
     grid-template-columns: max-content max-content;
@@ -94,11 +91,18 @@ a {
     margin-bottom: 2rem; }
   .nav__toggle {
     font-size: 1.25rem;
-    padding: 0.75rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-color: #173169;
+    border-radius: 50%;
     cursor: pointer; }
+    .nav__toggle {
+      transform: rotate(180deg);
+      transition: 0.5s; }
   .nav__logo {
     color: var(--white-color);
-    font-weight: 600; }
+    font-weight: 600;
+    cursor: default; }
   .nav__link {
     display: grid;
     grid-template-columns: max-content max-content;
@@ -111,45 +115,39 @@ a {
     transition: 0.3s;
     cursor: pointer; }
     .nav__link:hover {
-      background-color: var(--first-color); }
+      background-color: var(--first-color);
+      cursor: pointer; }
   .nav__icon {
     font-size: 1.25rem; }
   .nav__name {
     font-size: var(--small-font-size); }
+  .nav__bot {
+    justify-self: flex-end;
+    border-bottom: solid 0.2rem #a70c0c; }
+    .nav__bot:hover {
+      background-color: #a70c0c; }
 
-/*Expander menu*/
-.expander {
-  width: calc(var(--nav-width) + 9.25rem); }
-
-/*Add padding body*/
-.body-pd {
-  padding: 2rem 0 0 16rem; }
-
-/*Active links menu*/
-.active {
+.nav-active {
   background-color: var(--first-color); }
 
-/*===== COLLAPSE =====*/
-.collapse {
+.nav-collapse {
   grid-template-columns: 20px max-content 1fr; }
-  .collapse__link {
+  .nav-collapse__link {
     justify-self: flex-end;
     transition: 0.5s; }
-  .collapse__menu {
+  .nav-collapse__menu {
     display: none;
     padding: 0.75rem 2.25rem; }
-  .collapse__sublink {
+  .nav-collapse__sublink {
     color: var(--sub-color);
     font-size: var(--small-font-size); }
-    .collapse__sublink:hover {
+    .nav-collapse__sublink:hover {
       color: var(--white-color); }
 
-/*Show collapse*/
-.showCollapse {
+.nav-showCollapse {
   display: block; }
 
-/*Rotate icon*/
-.rotate {
+.rotate180 {
   transform: rotate(180deg); }
 
 .container-fluid {

@@ -5,7 +5,7 @@ const TestBody = (props) => {
     <div className='bd'>
       <h2 className={'bd-title'}>{props.question.title}</h2>
       <h4 className='bd-question'>{props.question.text}</h4>
-      {props.question.type == 'single' ? (
+      {props.question.type === 'single' ? (
         <SingleAnswer answers={props.question.answers} />
       ) : (
         <MultiAnswer answers={props.question.answers} />

@@ -1,5 +1,4 @@
 const MultiAnswer = (props) => {
-  debugger;
   return (
     <div className='ans'>
       {props.answers.map((i) => (
