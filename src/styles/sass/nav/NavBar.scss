@@ -1,0 +1,32 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: #fff;
+  padding: 1.5rem 1.5rem 2rem;
+  z-index: var(--z-fixed);
+  transition: 0.5s ease-in-out;
+}
+
+.nav-expander {
+  width: calc(var(--nav-width) + 9.25rem);
+}
+
+.main-component {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: 5rem;
+  transition: 0.5s ease-in-out;
+}
+
+.comp-expander {
+  padding-left: calc(var(--nav-width) + 9.25rem);
+}
+
+.bot {
+  justify-self: end;
+}

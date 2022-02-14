@@ -1,8 +1,8 @@
-import 'boxicons';
-import MenuItem from './menuItem';
-import SubMenuItem from './subMenuItem';
+import { useState } from 'react';
+import NavBar from './navbar/NavBar';
 
 const Main = (props) => {
+
   return (
     <div>
       <div className='l-navbar' id='navbar'>
@@ -83,7 +83,27 @@ const Main = (props) => {
       <script src='https://unpkg.com/ionicons@5.1.2/dist/ionicons.js'></script>
 
       <script src='assets/js/main.js'></script>
+=======
+  const [isActive, setIsActive] = useState(false);
+  const [navClass, setNavClass] = useState('nav-bar');
+  const [CompClass, setCompClass] = useState('main-component');
+
+  const navHandler = () => {
+    setIsActive((preState) => {
+      preState = !preState;
+      preState ? setNavClass('nav-bar nav-expander') : setNavClass('nav-bar');
+      preState ? setCompClass('main-component comp-expander') : setCompClass('main-component');
+      return preState;
+    });
+  };
+
+  return (
+    <div cla>
+      <NavBar className={navClass} navHandler={navHandler} />
+      <div className={CompClass}>{props.children}</div>
+
     </div>
   );
 };
 export default Main;
+

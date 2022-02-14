@@ -1,5 +1,4 @@
 const TestFotter = (props) => {
-  debugger;
   return (
     <div className='ft'>
       <hr className='ft-hr' />
