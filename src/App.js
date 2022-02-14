@@ -1,6 +1,7 @@
 import Main from 'components/main/Main';
 import Test from 'components/test/test';
-import Tmp from "./components/newTest/newTest";
+
+
 
 const App = () => {
   const questions = [
@@ -16,7 +17,8 @@ const App = () => {
       <Main>
         <Test title='hi' questions={questions} />
       </Main>
-      <Tmp />
+
+
     </div>
   );
 };
