@@ -1,6 +1,6 @@
 import Main from "components/main/Main";
 import Test from "components/test/test";
-import Tmp from "./components/newTest/newTest";
+import Tmp from "./components/editQuestion/editQuestion";
 
 const App = () => {
   const questions = [
