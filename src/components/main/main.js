@@ -5,76 +5,76 @@ import SubMenuItem from './subMenuItem';
 const Main = (props) => {
   return (
     <div>
-      <div class='l-navbar' id='navbar'>
-        <nav class='nav'>
+      <div className='l-navbar' id='navbar'>
+        <nav className='nav'>
           <div>
-            <div class='nav__brand'>
-              <ion-icon name='menu-outline' class='nav__toggle' id='nav-toggle'></ion-icon>
-              <a href='#' class='nav__logo'>
+            <div className='nav__brand'>
+              <ion-icon name='menu-outline' className='nav__toggle' id='nav-toggle'></ion-icon>
+              <a href='#' className='nav__logo'>
                 Bedimcode
               </a>
             </div>
-            <div class='nav__list'>
-              <a href='#' class='nav__link active'>
-                <ion-icon name='home-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Dashboard</span>
+            <div className='nav__list'>
+              <a href='#' className='nav__link active'>
+                <ion-icon name='home-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Dashboard</span>
               </a>
-              <a href='#' class='nav__link'>
-                <ion-icon name='chatbubbles-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Messenger</span>
+              <a href='#' className='nav__link'>
+                <ion-icon name='chatbubbles-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Messenger</span>
               </a>
 
-              <div class='nav__link collapse'>
-                <ion-icon name='folder-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Projects</span>
+              <div className='nav__link collapse'>
+                <ion-icon name='folder-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Projects</span>
 
-                <ion-icon name='chevron-down-outline' class='collapse__link'></ion-icon>
+                <ion-icon name='chevron-down-outline' className='collapse__link'></ion-icon>
 
-                <ul class='collapse__menu'>
-                  <a href='#' class='collapse__sublink'>
+                <ul className='collapse__menu'>
+                  <a href='#' className='collapse__sublink'>
                     Data
                   </a>
-                  <a href='#' class='collapse__sublink'>
+                  <a href='#' className='collapse__sublink'>
                     Group
                   </a>
-                  <a href='#' class='collapse__sublink'>
+                  <a href='#' className='collapse__sublink'>
                     Members
                   </a>
                 </ul>
               </div>
 
-              <a href='#' class='nav__link'>
-                <ion-icon name='pie-chart-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Analytics</span>
+              <a href='#' className='nav__link'>
+                <ion-icon name='pie-chart-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Analytics</span>
               </a>
-              <div class='nav__link collapse'>
-                <ion-icon name='people-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Team</span>
+              <div className='nav__link collapse'>
+                <ion-icon name='people-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Team</span>
 
-                <ion-icon name='chevron-down-outline' class='collapse__link'></ion-icon>
+                <ion-icon name='chevron-down-outline' className='collapse__link'></ion-icon>
 
-                <ul class='collapse__menu'>
-                  <a href='#' class='collapse__sublink'>
+                <ul className='collapse__menu'>
+                  <a href='#' className='collapse__sublink'>
                     Data
                   </a>
-                  <a href='#' class='collapse__sublink'>
+                  <a href='#' className='collapse__sublink'>
                     Group
                   </a>
-                  <a href='#' class='collapse__sublink'>
+                  <a href='#' className='collapse__sublink'>
                     Members
                   </a>
                 </ul>
               </div>
-              <a href='#' class='nav__link'>
-                <ion-icon name='settings-outline' class='nav__icon'></ion-icon>
-                <span class='nav__name'>Settings</span>
+              <a href='#' className='nav__link'>
+                <ion-icon name='settings-outline' className='nav__icon'></ion-icon>
+                <span className='nav__name'>Settings</span>
               </a>
             </div>
           </div>
 
-          <a href='#' class='nav__link'>
-            <ion-icon name='log-out-outline' class='nav__icon'></ion-icon>
-            <span class='nav__name'>Log Out</span>
+          <a href='#' className='nav__link'>
+            <ion-icon name='log-out-outline' className='nav__icon'></ion-icon>
+            <span className='nav__name'>Log Out</span>
           </a>
         </nav>
       </div>

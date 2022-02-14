@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import  {Editor} from "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "../styles/sass/textBlock/textBlock.scss";
 const TextBlock = (props) => {
+
+const onEditorStateChange=(event)=>{
+  props.onMessageChange(event.getCurrentContent().getPlainText());
+}
+
   return (
     <div className="textBlock_main">
       <div className="textBlock_title">
@@ -10,11 +15,10 @@ const TextBlock = (props) => {
       </div>
       <div className="textBlock_editor">
         <Editor
-          //   editorState={editorState}
           toolbarClassName="toolbarClassName"
           wrapperClassName="wrapperClassName"
           editorClassName="editorClassName"
-          //   onEditorStateChange={this.onEditorStateChange}
+          onEditorStateChange={onEditorStateChange}
         />
       </div>
     </div>
