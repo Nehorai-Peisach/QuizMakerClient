@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import  {Editor} from "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const TextBlock = (props) => {

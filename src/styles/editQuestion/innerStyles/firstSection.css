@@ -25,15 +25,9 @@ height: 80vh;
 } 
 .firstSection_text{
     grid-row-start: 3;
-    grid-column-start: 2;
-}
-.firstSection_p_text{
-    grid-row-start: 3;
+    grid-column: 1 /3;
 }
 .firstSection_textBelow{
     grid-row-start: 4;
-    grid-column-start: 2;
-}
-.firstSection_p_textBelow{
-    grid-row-start: 4;
+    grid-column: 1 /3;
 }

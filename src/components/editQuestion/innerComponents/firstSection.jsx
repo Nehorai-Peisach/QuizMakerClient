@@ -2,8 +2,19 @@ import React from "react";
 import "../../../styles/editQuestion/innerStyles/firstSection.css";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import TextBlock from "components/textBlock";
 
 const firstSection = (props) => {
+
+  const onTypeChange=(event)=>{
+    props.onTypeChange(event.target.value)
+  }
+  const onFirstTextChange=(event)=>{
+    props.onFirstTextChange(event.target.value)
+  }
+  const onFirstTextBelowChange=(event)=>{
+    props.onFirstTextBelowChange(event.target.value)
+  }
   return (
     <div className="firstSection_main">
       <p className="firstSection_p_field">Question text: </p>
@@ -11,35 +22,18 @@ const firstSection = (props) => {
       <p className="firstSection_p_type">Question type: </p>
       <div className="firstSection_type">
         <div>
-          <select
-            // defaultValue={this.state.selectValue}
-            // onChange={this.handleChange}
-          >
+          <select onChange={onTypeChange}>
             <option value="Orange">Orange</option>
             <option value="Radish">Radish</option>
             <option value="Cherry">Cherry</option>
           </select>
         </div>
       </div>
-      <p className="firstSection_p_text">Question text: </p>
       <div className="firstSection_text">
-        <Editor
-          //   editorState={editorState}
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          //   onEditorStateChange={this.onEditorStateChange}
-        />
+      <TextBlock title="Question text: " onMessageChange={onFirstTextChange}/>
       </div>
-      <p className="firstSection_p_textBelow">Text below question:</p>
       <div className="firstSection_textBelow">
-        <Editor
-          //   editorState={editorState}
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          //   onEditorStateChange={this.onEditorStateChange}
-        />
+      <TextBlock title="Text below question: " onMessageChange={onFirstTextBelowChange}/>
       </div>
     </div>
   );

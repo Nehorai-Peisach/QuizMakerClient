@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import FirstSection from "./innerComponents/firstSection";
 import AnswerSection from "./innerComponents/answerSection";
 import TagsSection from "./innerComponents/tagsSection";
 import "../../styles/editQuestion/editQuestion.css";
 
-const editQuestion = (props) => {
+const EditQuestion = (props) => {
+const[firstType,setFirstType]=useState("");
+const[firstText,setFirstText]=useState("");
+const[firstTextBelow,setFirstTextBelow]=useState("");
+
+  const onTypeChange=(event)=>{
+    setFirstType(event)
+  }
+  const onFirstTextChange=(event)=>{
+    setFirstText(event)
+  }
+  const onFirstTextBelowChange=(event)=>{
+    setFirstTextBelow(event)
+  }
+
 
   const ColoredLine = ({ color }) => (
     <hr
@@ -17,7 +31,7 @@ const editQuestion = (props) => {
 );  
   return (
     <div className="editQuestion_container">
-      <FirstSection />
+      <FirstSection onTypeChange={onTypeChange} onFirstTextChange={onFirstTextChange} onFirstTextBelowChange={onFirstTextBelowChange}/>
       {ColoredLine("gray")}
       <AnswerSection />
       {ColoredLine("gray")}
@@ -26,4 +40,4 @@ const editQuestion = (props) => {
   );
 };
 
-export default editQuestion;
+export default EditQuestion;
