@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GeneralTestDetails from "./innerComponents/generalTestDetails";
 import PassingTest from "./innerComponents/passingTest";
 import FaillingTest from "./innerComponents/faillingTest";
+import axios from "axios";
 
 const NewTest = (props) => {
   const [tmpNewTest, setTmpNewTest] = useState({});
@@ -17,6 +18,28 @@ const NewTest = (props) => {
   const [headerGeneral, setHeaderGeneral] = useState("");
   const [messageSuccessGeneral, setMessageSuccessGeneral] = useState("");
   const [messageFailGeneral, setMessageFailGeneral] = useState("");
+
+  const handleSubmit = () => {
+    let tmp = {
+      field: "Development",
+      languege: languegeGeneral,
+      testType: typeGeneral,
+      testName: nameGeneral,
+      passingGrade: gradeGeneral,
+      showCorrectAnswerAfterTest: showCorrectGeneral,
+      header: headerGeneral,
+      messageOnSuccess: messageSuccessGeneral,
+      messageOnFail: messageFailGeneral,
+      messageSubjectPassing: messageSubjectPassing,
+      messageBodyPassing: messageBodyPassing,
+      messageSubjectFailing: messageSubjectFailling,
+      messageBodyFailing: messageBodyFailling,
+    };
+    setTmpNewTest(tmp);
+    axios.post('http://localhost:4000/api/quizes/addNewTest',tmp)
+  };
+
+
 
   const faillingBodyHandler = (message) => {
     setMessageBodyFailling(message);
@@ -54,26 +77,9 @@ const NewTest = (props) => {
   const onShowCorrectAnswerChange = (event) => {
     setShowCorrectGeneral(event);
   };
-  const handleSubmit = () => {
-    let tmp = {
-      field: "Development",
-      languege: languegeGeneral,
-      testType: typeGeneral,
-      testName: nameGeneral,
-      passingGrade: gradeGeneral,
-      showCorrectAnswerAfterTest: showCorrectGeneral,
-      header: headerGeneral,
-      messageOnSuccess: messageSuccessGeneral,
-      messageOnFail: messageFailGeneral,
-      messageSubjectPassing: messageSubjectPassing,
-      messageBodyPassing: messageBodyPassing,
-      messageSubjectFailing: messageSubjectFailling,
-      messageBodyFailing: messageBodyFailling,
-    };
-    setTmpNewTest(tmp);
-  };
+  
   return (
-    <div>
+    <div className="newTest_container">
       <GeneralTestDetails
         onHeaderChange={onHeaderChange}
         onMessageSuccessChange={onMessageSuccessChange}

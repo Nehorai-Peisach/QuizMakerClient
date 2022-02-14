@@ -2,7 +2,7 @@ import React from "react";
 import FirstSection from "./innerComponents/firstSection";
 import AnswerSection from "./innerComponents/answerSection";
 import TagsSection from "./innerComponents/tagsSection";
-import "../../styles/editQuestion/innerStyles/editQuestion.css";
+import "../../styles/editQuestion/editQuestion.css";
 
 const editQuestion = (props) => {
 
@@ -16,7 +16,7 @@ const editQuestion = (props) => {
     />
 );  
   return (
-    <div>
+    <div className="editQuestion_container">
       <FirstSection />
       {ColoredLine("gray")}
       <AnswerSection />
