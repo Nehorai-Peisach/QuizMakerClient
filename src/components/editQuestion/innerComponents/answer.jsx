@@ -8,7 +8,6 @@ const answer = (props) => {
     <div className="answer_main">
       <button className="answer_btn_delete">X</button>
       <Editor
-        //   editorState={editorState}
         toolbarClassName="toolbarClassName"
         wrapperClassName="wrapperClassName"
         editorClassName="editorClassName"
