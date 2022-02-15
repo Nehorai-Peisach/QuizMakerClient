@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import NavLink from './NavLink';
+import NavMenu from './NavMenu';
 
 const NavList = (props) => {
   const [items, setItems] = useState();
 
-  const colorLink = (selectedItem) => {
-    debugger;
-  };
-
   useEffect(() => {
     setItems(
-      props.items.map((item) => (
-        <NavLink name={item.name} icon={item.icon} isActive={item.isActive} colorLink={colorLink} />
-      ))
+      props.items.map((item) =>
+        item.items ? (
+          <NavMenu name={item.name} icon={item.icon} items={item.items} />
+        ) : (
+          <NavLink name={item.name} icon={item.icon} />
+        )
+      )
     );
   }, []);
 
-  return <div className='nav__list'>{items}</div>;
+  return <div className="nav__list">{items}</div>;
 };
 
 export default NavList;
