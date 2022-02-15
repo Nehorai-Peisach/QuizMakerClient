@@ -10,10 +10,10 @@ const firstSection = (props) => {
     props.onTypeChange(event.target.value)
   }
   const onFirstTextChange=(event)=>{
-    props.onFirstTextChange(event.target.value)
+    props.onFirstTextChange(event)
   }
   const onFirstTextBelowChange=(event)=>{
-    props.onFirstTextBelowChange(event.target.value)
+    props.onFirstTextBelowChange(event)
   }
   return (
     <div className="firstSection_main">
