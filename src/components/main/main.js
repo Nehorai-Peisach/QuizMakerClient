@@ -14,10 +14,13 @@ const Main = (props) => {
       return preState;
     });
   };
+  const navigate=(event)=>{
+    props.navigate(event)
+  }
 
   return (
-    <div cla>
-      <NavBar className={navClass} navHandler={navHandler} />
+    <div >
+      <NavBar className={navClass} navHandler={navHandler} navigate={navigate}/>
       <div className={CompClass}>{props.children}</div>
     </div>
   );

@@ -41,16 +41,16 @@ const list = [
 const bot = { name: 'Log Out', icon: VscSignOut };
 
 const NavBar = (props) => {
+
+  const navigate=(event)=>{
+    props.navigate(event)
+  }
   return (
     <div className={props.className}>
-      <nav className="nav">
-        <NavBrand
-          name={brand.name}
-          icon={brand.icon}
-          navHandler={props.navHandler}
-        />
-        <div className="nav__container">
-          <NavList items={list} />
+      <nav className='nav'>
+        <NavBrand name={brand.name} icon={brand.icon} navHandler={props.navHandler} />
+        <div className='nav__container'>
+          <NavList items={list} navigate={navigate}/>
           <NavBot name={bot.name} icon={bot.icon} />
         </div>
       </nav>
