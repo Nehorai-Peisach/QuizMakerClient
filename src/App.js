@@ -1,5 +1,6 @@
 import Main from "components/main/Main";
 import Navigator from "components/Navigator/navigator";
+import data from 'dummydata.json';
 import React, {
   useState,
   forwardRef,
@@ -7,6 +8,8 @@ import React, {
   useImperativeHandle,
 } from "react";
 const App = () => {
+  
+  const questions = data.questions;
   const questions = [
     {
       title: "Question 1",

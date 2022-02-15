@@ -1,0 +1,29 @@
+.collapse {
+  &__link {
+    justify-self: flex-end;
+    transition: 0.5s;
+    z-index: 2;
+  }
+
+  &__menu {
+    display: none;
+    padding: 0.75rem 2.25rem;
+    width: max-content;
+  }
+  &__sublink {
+    display: block;
+    color: var(--sub-color);
+    font-size: var(--small-font-size);
+    &:hover {
+      color: var(--white-color);
+    }
+  }
+}
+
+.showCollapse {
+  display: block;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}

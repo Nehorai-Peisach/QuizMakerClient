@@ -8,6 +8,9 @@ const NavLink = (props) => {
     <a href={props.link} className={linkClass}>
       <ion-icon name={props.icon} class='nav__icon' onClick={() => {props.colorLink(this);navigate();}} />
       <span className='nav__name'>{props.name}</span>
+
+      //<props.icon className="nav__icon" />
+
     </a>
   );
 };

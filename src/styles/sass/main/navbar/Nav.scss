@@ -23,15 +23,11 @@
   &__toggle {
     font-size: 1.25rem;
     margin: 0.2rem;
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: rgb(23, 49, 105);
     border-radius: 50%;
+    box-sizing: content-box;
     cursor: pointer;
-
-    & {
-      transform: rotate(180deg);
-      transition: 0.5s;
-    }
   }
 
   &__logo {
@@ -42,10 +38,10 @@
 
   &__link {
     display: grid;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: 1rem max-content 1fr;
     align-items: center;
-    column-gap: 0.75rem;
-    padding: 0.75rem;
+    column-gap: 1.5rem;
+    padding: 1rem;
     color: var(--white-color);
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -59,50 +55,19 @@
   }
 
   &__icon {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   &__name {
+    box-sizing: content-box;
     font-size: var(--small-font-size);
   }
 
   &__bot {
+    gap: 2em;
     justify-self: flex-end;
     border-bottom: solid 0.2rem rgb(167, 12, 12);
     &:hover {
       background-color: rgb(167, 12, 12);
     }
   }
-}
-
-.nav-active {
-  background-color: var(--first-color);
-}
-
-.nav-collapse {
-  grid-template-columns: 20px max-content 1fr;
-
-  &__link {
-    justify-self: flex-end;
-    transition: 0.5s;
-  }
-
-  &__menu {
-    display: none;
-    padding: 0.75rem 2.25rem;
-  }
-  &__sublink {
-    color: var(--sub-color);
-    font-size: var(--small-font-size);
-    &:hover {
-      color: var(--white-color);
-    }
-  }
-}
-
-.nav-showCollapse {
-  display: block;
-}
-
-.rotate180 {
-  transform: rotate(180deg);
 }
