@@ -7,6 +7,10 @@ const NavMenu = (props) => {
   const [arrow, setArrow] = useState('collapse__link');
   const [menuLink, setMenuLink] = useState('collapse__menu');
 
+  const navigate = (name) => {
+    props.navigate(name);
+  };
+
   const clickHandler = () => {
     setIsActive((preState) => {
       preState = !preState;
@@ -33,7 +37,7 @@ const NavMenu = (props) => {
 
       <div className={menuLink}>
         {props.items.map((item) => (
-          <a href={item.link} className="collapse__sublink">
+          <a href={item.link} className="collapse__sublink" onClick={() => navigate(item.name)}>
             {item.name}
           </a>
         ))}

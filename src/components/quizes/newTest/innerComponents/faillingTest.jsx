@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import TextBlock from "components/textBlock";
+import React, { useState } from 'react';
+import TextBlock from 'components/publicComponents/textBlock';
 
 const FaillingTest = (props) => {
-
   const subjectHendler = (event) => {
     props.faillingSubjectHandler(event.target.value);
   };
@@ -17,11 +16,7 @@ const FaillingTest = (props) => {
       <h4 className="passingTest_mainTitle">Failing the Test</h4>
       <div className="passingTest_main">
         <p className="passingTest_inputTitle">Message Subject: </p>
-        <input
-          className="passingTest_input"
-          type="text"
-          onChange={subjectHendler}
-        />
+        <input className="passingTest_input" type="text" onChange={subjectHendler} />
 
         <div className="passingTest_body">
           <TextBlock title="Message Body: " onMessageChange={onMessageChange} />

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import TextBlock from "components/textBlock";
+import React, { useState } from 'react';
+import TextBlock from 'components/publicComponents/textBlock';
 
 const GeneralTestDetails = (props) => {
- 
-  
   const onHeaderChange = (event) => {
     props.onHeaderChange(event);
   };
@@ -28,7 +26,7 @@ const GeneralTestDetails = (props) => {
   const onShowCorrectAnswerChange = (event) => {
     props.onShowCorrectAnswerChange(event.target.value);
   };
- 
+
   return (
     <div>
       <h4 className="general_mainTitle">General Test Details</h4>
@@ -43,9 +41,7 @@ const GeneralTestDetails = (props) => {
           <p>Languege</p>
         </div>
         <div className="general_lung">
-          <select
-           onChange={onLanguegeChange}
-          >
+          <select onChange={onLanguegeChange}>
             <option value="English">English</option>
             <option value="Hebrew">Hebrew</option>
           </select>
@@ -54,7 +50,7 @@ const GeneralTestDetails = (props) => {
           <p>Test type: </p>
         </div>
         <div className="general_type">
-          <select onChange={onTypeChange} >
+          <select onChange={onTypeChange}>
             <option value="English">English</option>
             <option value="Hebrew">Hebrew</option>
           </select>
@@ -63,35 +59,31 @@ const GeneralTestDetails = (props) => {
           <p>Test name: </p>
         </div>
         <div className="general_name">
-          <input type="text" placeholder="Enter name" onChange={onNameChange}/>
+          <input type="text" placeholder="Enter name" onChange={onNameChange} />
         </div>
         <div className="general_p_grade">
           <p>Passing Grade: </p>
         </div>
         <div className="general_grade">
-          <input type="number" placeholder="Enter grade" onChange={onGradeChange}/>
+          <input type="number" placeholder="Enter grade" onChange={onGradeChange} />
         </div>
         <div className="general_p_showGradeAfter">
           <p>Show correct answer after submmision</p>
         </div>
         <div className="general_showGradeAfter">
-          <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={true}/>Yes
-          <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={false} />No
+          <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={true} />
+          Yes
+          <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={false} />
+          No
         </div>
         <div className="general_header">
           <TextBlock title="Header: " onMessageChange={onHeaderChange} />
         </div>
         <div className="general_msg_success">
-          <TextBlock
-            title="Message to show on Success: "
-            onMessageChange={onMessageSuccessChange}
-          />
+          <TextBlock title="Message to show on Success: " onMessageChange={onMessageSuccessChange} />
         </div>
         <div className="general_msg_fail">
-          <TextBlock
-            title="Message to show on Failure: "
-            onMessageChange={onMessageFailChange}
-          />
+          <TextBlock title="Message to show on Failure: " onMessageChange={onMessageFailChange} />
         </div>
       </div>
     </div>

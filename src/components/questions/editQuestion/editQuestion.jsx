@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import FirstSection from "./innerComponents/firstSection";
-import AnswerSection from "./innerComponents/answerSection";
-import TagsSection from "./innerComponents/tagsSection";
-import "../../styles/editQuestion/editQuestion.css";
+import React, { useState } from 'react';
+import FirstSection from './innerComponents/firstSection';
+import AnswerSection from './innerComponents/answerSection';
+import TagsSection from './innerComponents/tagsSection';
 
 const EditQuestion = (props) => {
-  const [firstType, setFirstType] = useState("");
+  const [firstType, setFirstType] = useState('');
   const [newQuestion, setNewQuestion] = useState({});
-  const [firstText, setFirstText] = useState("");
-  const [firstTextBelow, setFirstTextBelow] = useState("");
+  const [firstText, setFirstText] = useState('');
+  const [firstTextBelow, setFirstTextBelow] = useState('');
   const [answersList, setAnswersList] = useState([]);
   const [tagsList, setTagsList] = useState([]);
 
@@ -25,7 +24,7 @@ const EditQuestion = (props) => {
     setAnswersList([...listOfAnswer]);
   };
   const onTagsChange = (listOfTags) => {
-    let tmp = listOfTags.split(",");
+    let tmp = listOfTags.split(',');
     setTagsList([...tmp]);
   };
   const ColoredLine = ({ color }) => (
@@ -54,9 +53,9 @@ const EditQuestion = (props) => {
         onFirstTextChange={onFirstTextChange}
         onFirstTextBelowChange={onFirstTextBelowChange}
       />
-      {ColoredLine("gray")}
+      {ColoredLine('gray')}
       <AnswerSection onAnswersListChange={onAnswersListChange} />
-      {ColoredLine("gray")}
+      {ColoredLine('gray')}
       <TagsSection onTagsChange={onTagsChange} />
       <button onClick={SaveHandler}>Save </button>
     </div>

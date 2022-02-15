@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import GeneralTestDetails from "./innerComponents/generalTestDetails";
-import PassingTest from "./innerComponents/passingTest";
-import FaillingTest from "./innerComponents/faillingTest";
-import axios from "axios";
+import React, { useState } from 'react';
+import GeneralTestDetails from './innerComponents/generalTestDetails';
+import PassingTest from './innerComponents/passingTest';
+import FaillingTest from './innerComponents/faillingTest';
+import axios from 'axios';
 
 const NewTest = (props) => {
   const [tmpNewTest, setTmpNewTest] = useState({});
-  const [messageBodyFailling, setMessageBodyFailling] = useState("");
-  const [messageSubjectFailling, setMessageSubjectFailling] = useState("");
-  const [messageBodyPassing, setMessageBodyPassing] = useState("");
-  const [messageSubjectPassing, setMessageSubjectPassing] = useState("");
-  const [languegeGeneral, setLanguegeGeneral] = useState("");
-  const [typeGeneral, setTypeGeneral] = useState("");
-  const [nameGeneral, setNameGeneral] = useState("");
-  const [gradeGeneral, setGradeGeneral] = useState("");
+  const [messageBodyFailling, setMessageBodyFailling] = useState('');
+  const [messageSubjectFailling, setMessageSubjectFailling] = useState('');
+  const [messageBodyPassing, setMessageBodyPassing] = useState('');
+  const [messageSubjectPassing, setMessageSubjectPassing] = useState('');
+  const [languegeGeneral, setLanguegeGeneral] = useState('');
+  const [typeGeneral, setTypeGeneral] = useState('');
+  const [nameGeneral, setNameGeneral] = useState('');
+  const [gradeGeneral, setGradeGeneral] = useState('');
   const [showCorrectGeneral, setShowCorrectGeneral] = useState(false);
-  const [headerGeneral, setHeaderGeneral] = useState("");
-  const [messageSuccessGeneral, setMessageSuccessGeneral] = useState("");
-  const [messageFailGeneral, setMessageFailGeneral] = useState("");
+  const [headerGeneral, setHeaderGeneral] = useState('');
+  const [messageSuccessGeneral, setMessageSuccessGeneral] = useState('');
+  const [messageFailGeneral, setMessageFailGeneral] = useState('');
 
   const handleSubmit = () => {
     let tmp = {
-      field: "Development",
+      field: 'Development',
       languege: languegeGeneral,
       testType: typeGeneral,
       testName: nameGeneral,
@@ -36,10 +36,13 @@ const NewTest = (props) => {
       messageBodyFailing: messageBodyFailling,
     };
     setTmpNewTest(tmp);
-    axios.post('http://localhost:4000/api/quizes/addNewTest',tmp)
+    debugger;
+    axios.post(
+      'http://localhost:4000/api/quizes/addNewTest',
+      // JSON.stringify(tmp)
+      tmp
+    );
   };
-
-
 
   const faillingBodyHandler = (message) => {
     setMessageBodyFailling(message);
@@ -77,7 +80,7 @@ const NewTest = (props) => {
   const onShowCorrectAnswerChange = (event) => {
     setShowCorrectGeneral(event);
   };
-  
+
   return (
     <div className="newTest_container">
       <GeneralTestDetails

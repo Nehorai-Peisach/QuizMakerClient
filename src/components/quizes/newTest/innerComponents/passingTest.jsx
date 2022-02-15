@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import TextBlock from "components/textBlock";
+import TextBlock from 'components/publicComponents/textBlock';
 
 const PassingTest = (props) => {
-
   const subjectHendler = (event) => {
     props.passingSubjectHandler(event.target.value);
   };
@@ -20,7 +19,7 @@ const PassingTest = (props) => {
         <p className="passingTest_inputTitle">Message Subject: </p>
         <input className="passingTest_input" type="text" />
         <div className="passingTest_body">
-          <TextBlock title="Message Body: " onMessageChange={onMessageChange}/>
+          <TextBlock title="Message Body: " onMessageChange={onMessageChange} />
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import React from "react";
-import "../../../styles/editQuestion/innerStyles/tagsSection.css";
+import React from 'react';
 
 const tagsSection = (props) => {
   const onTagsChange = (event) => {
@@ -9,11 +8,7 @@ const tagsSection = (props) => {
     <div className="tagsSection__main">
       <p>Tags:</p>
       <div className="tagsSection__input">
-        <input
-          type="text"
-          placeholder="Tags here"
-          onChange={onTagsChange}
-        ></input>
+        <input type="text" placeholder="Tags here" onChange={onTagsChange}></input>
       </div>
     </div>
   );

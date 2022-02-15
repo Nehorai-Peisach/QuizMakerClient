@@ -1,11 +1,4 @@
-import {
-  VscEllipsis,
-  VscHome,
-  VscFile,
-  VscInspect,
-  VscPieChart,
-  VscSignOut,
-} from 'react-icons/vsc';
+import { VscEllipsis, VscHome, VscFile, VscInspect, VscPieChart, VscSignOut } from 'react-icons/vsc';
 import NavBrand from './NavBrand';
 import NavList from './NavList';
 import NavBot from './NavBot';
@@ -25,8 +18,8 @@ const list = [
     name: 'Qustions',
     icon: VscInspect,
     items: [
-      { name: 'Manage Qustions', link: '#' },
-      { name: 'Create Qustion', link: '#' },
+      { name: 'Manage Questions', link: '#' },
+      { name: 'Create Question', link: '#' },
     ],
   },
   {
@@ -41,16 +34,15 @@ const list = [
 const bot = { name: 'Log Out', icon: VscSignOut };
 
 const NavBar = (props) => {
-
-  const navigate=(event)=>{
-    props.navigate(event)
-  }
+  const navigate = (event) => {
+    props.navigate(event);
+  };
   return (
     <div className={props.className}>
-      <nav className='nav'>
+      <nav className="nav">
         <NavBrand name={brand.name} icon={brand.icon} navHandler={props.navHandler} />
-        <div className='nav__container'>
-          <NavList items={list} navigate={navigate}/>
+        <div className="nav__container">
+          <NavList items={list} navigate={navigate} />
           <NavBot name={bot.name} icon={bot.icon} />
         </div>
       </nav>

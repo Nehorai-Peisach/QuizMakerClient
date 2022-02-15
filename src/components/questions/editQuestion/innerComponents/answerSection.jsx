@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import Answer from "./answer";
-import "../../../styles/editQuestion/innerStyles/answerSection.css";
+import React, { useEffect, useRef, useState } from 'react';
+import Answer from './answer';
 
 const AnswerSection = (props) => {
   const [answersState, setAnswersState] = useState([]);
@@ -23,7 +22,7 @@ const AnswerSection = (props) => {
       );
       let tmpAnswerForList = {
         id: i,
-        text: "",
+        text: '',
         isCorrect: false,
       };
       tmpArr.push(tmpAnswer);
@@ -50,7 +49,7 @@ const AnswerSection = (props) => {
     );
     let tmpAnswerForList = {
       id: length,
-      text: "",
+      text: '',
       isCorrect: false,
     };
     let tmpList = answersList;

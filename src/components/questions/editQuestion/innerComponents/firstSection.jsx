@@ -1,20 +1,18 @@
-import React from "react";
-import "../../../styles/editQuestion/innerStyles/firstSection.css";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import TextBlock from "components/textBlock";
+import React from 'react';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import TextBlock from 'components/publicComponents/textBlock';
 
 const firstSection = (props) => {
-
-  const onTypeChange=(event)=>{
-    props.onTypeChange(event.target.value)
-  }
-  const onFirstTextChange=(event)=>{
-    props.onFirstTextChange(event)
-  }
-  const onFirstTextBelowChange=(event)=>{
-    props.onFirstTextBelowChange(event)
-  }
+  const onTypeChange = (event) => {
+    props.onTypeChange(event.target.value);
+  };
+  const onFirstTextChange = (event) => {
+    props.onFirstTextChange(event);
+  };
+  const onFirstTextBelowChange = (event) => {
+    props.onFirstTextBelowChange(event);
+  };
   return (
     <div className="firstSection_main">
       <p className="firstSection_p_field">Question text: </p>
@@ -30,10 +28,10 @@ const firstSection = (props) => {
         </div>
       </div>
       <div className="firstSection_text">
-      <TextBlock title="Question text: " onMessageChange={onFirstTextChange}/>
+        <TextBlock title="Question text: " onMessageChange={onFirstTextChange} />
       </div>
       <div className="firstSection_textBelow">
-      <TextBlock title="Text below question: " onMessageChange={onFirstTextBelowChange}/>
+        <TextBlock title="Text below question: " onMessageChange={onFirstTextBelowChange} />
       </div>
     </div>
   );
