@@ -1,7 +1,11 @@
 import Main from "components/main/Main";
-import Test from "components/test/test";
-import Tmp from "./components/editQuestion/editQuestion";
-
+import Navigator from "components/Navigator/navigator";
+import React, {
+  useState,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from "react";
 const App = () => {
   const questions = [
     {
@@ -41,11 +45,15 @@ const App = () => {
       type: "multi",
     },
   ];
+  const navigatorRef = useRef();
+  const navigate=(newComp)=>{
+navigatorRef.current.move(newComp);
+  }
+  // navigator={navigatorRef.current.func}
   return (
     <div className="App">
-      <Main>
-        <Test title="hi" questions={questions} />
-        <Tmp />
+      <Main navigate={navigate}>
+        <Navigator ref={navigatorRef} />
       </Main>
     </div>
   );
