@@ -520,3 +520,9 @@ a:visited {
 
 .rotate {
   transform: rotate(180deg); }
+
+.navigator_rapper {
+  min-height: 100%;
+  min-width: 100%;
+  padding: 3%;
+  background-color: aqua; }
