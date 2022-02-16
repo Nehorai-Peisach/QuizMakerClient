@@ -3,6 +3,7 @@ import GeneralTestDetails from './innerComponents/generalTestDetails';
 import PassingTest from './innerComponents/passingTest';
 import FaillingTest from './innerComponents/faillingTest';
 import axios from 'axios';
+const uuid=require('uuid')
 
 const NewTest = (props) => {
   const [tmpNewTest, setTmpNewTest] = useState({});
@@ -21,19 +22,23 @@ const NewTest = (props) => {
 
   const handleSubmit = () => {
     let tmp = {
-      field: 'Development',
-      languege: languegeGeneral,
-      testType: typeGeneral,
-      testName: nameGeneral,
-      passingGrade: gradeGeneral,
-      showCorrectAnswerAfterTest: showCorrectGeneral,
-      header: headerGeneral,
-      messageOnSuccess: messageSuccessGeneral,
-      messageOnFail: messageFailGeneral,
+      Id: uuid.v4(),
+      CompanyId:"Sela",
+      Field: 'Development',
+      Language: languegeGeneral,
+      TestType: typeGeneral,
+      Name: nameGeneral,
+      PassingGrade: gradeGeneral,
+      ShowAnswersAfter: showCorrectGeneral,
+      Header: headerGeneral,
+      QuestionsId:[],
+      MsgOnSuccess: messageSuccessGeneral,
+      MsgOnFailure: messageFailGeneral,
       messageSubjectPassing: messageSubjectPassing,
       messageBodyPassing: messageBodyPassing,
       messageSubjectFailing: messageSubjectFailling,
       messageBodyFailing: messageBodyFailling,
+      ChangedDate: Date.now()
     };
     setTmpNewTest(tmp);
     debugger;
