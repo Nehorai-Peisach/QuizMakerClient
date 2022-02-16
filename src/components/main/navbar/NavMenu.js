@@ -1,5 +1,5 @@
 import { VscChevronDown } from 'react-icons/vsc';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const NavMenu = (props) => {
   const [isActive, setIsActive] = useState(false);
@@ -16,6 +16,7 @@ const NavMenu = (props) => {
       preState = !preState;
 
       if (preState) {
+        props.navHandler(true);
         setLinkClass('nav__link');
         setArrow('collapse__link rotate');
         setMenuLink('collapse__menu showCollapse');
@@ -24,16 +25,17 @@ const NavMenu = (props) => {
         setArrow('collapse__link');
         setMenuLink('collapse__menu');
       }
+
       return preState;
     });
   };
 
   return (
-    <div className={linkClass}>
+    <div className={linkClass} onClick={clickHandler}>
       <props.icon className="nav__icon" />
       <span className="nav__name">{props.name}</span>
 
-      <VscChevronDown className={arrow} onClick={clickHandler} />
+      <VscChevronDown className={arrow} />
 
       <div className={menuLink}>
         {props.items.map((item) => (
