@@ -1,9 +1,11 @@
+import { useMemo } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import Pagination from '../../publicComponents/table/Pagination';
+import { Columns } from './Columns';
 
 const QuizesTable = (props) => {
-  const columns = props.columns;
-  const data = props.data;
+  const data = useMemo(() => props.data, []);
+  const columns = useMemo(() => Columns, []);
 
   const {
     getTableProps,
@@ -27,7 +29,7 @@ const QuizesTable = (props) => {
     {
       columns,
       data,
-      initialState: { pageIndex: 1 },
+      initialState: { pageIndex: 0 },
     },
     useSortBy,
     usePagination
@@ -55,7 +57,7 @@ const QuizesTable = (props) => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
-                  {row.cells.map((cell, index) => {
+                  {row.cells.map((cell) => {
                     return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
                   })}
                 </tr>

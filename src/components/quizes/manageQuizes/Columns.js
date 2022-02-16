@@ -1,7 +1,7 @@
 export const Columns = [
   {
     Header: 'Id',
-    accessor: 'id',
+    accessor: 'Id',
   },
   {
     Header: 'Link',
@@ -9,11 +9,11 @@ export const Columns = [
   },
   {
     Header: 'Quiz Name',
-    accessor: 'name',
+    accessor: 'Name',
   },
   {
     Header: 'Last Update',
-    accessor: 'date',
+    accessor: 'ChangedDate',
   },
   {
     Header: 'Type',

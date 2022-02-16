@@ -34,7 +34,6 @@ const Pagination = (props) => {
             <input
               className="pagination__pages__input"
               type="number"
-              defaultValue={props.pageIndex}
               onChange={(e) => {
                 const page = e.target.value ? Number(e.target.value) : 1;
                 props.gotoPage(page);

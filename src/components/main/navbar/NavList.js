@@ -5,7 +5,6 @@ import NavMenu from './NavMenu';
 const NavList = (props) => {
   const [items, setItems] = useState();
 
-  const colorLink = (selectedItem) => {};
   const navigate = (event) => {
     props.navigate(event);
   };
@@ -14,7 +13,14 @@ const NavList = (props) => {
     setItems(
       props.items.map((item) =>
         item.items ? (
-          <NavMenu name={item.name} icon={item.icon} items={item.items} navigate={navigate} />
+          <NavMenu
+            name={item.name}
+            icon={item.icon}
+            items={item.items}
+            navigate={navigate}
+            navHandler={props.navHandler}
+            isActive={props.isActive}
+          />
         ) : (
           <NavLink name={item.name} icon={item.icon} navigate={navigate} />
         )

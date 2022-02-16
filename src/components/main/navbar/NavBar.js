@@ -42,7 +42,7 @@ const NavBar = (props) => {
       <nav className="nav">
         <NavBrand name={brand.name} icon={brand.icon} navHandler={props.navHandler} />
         <div className="nav__container">
-          <NavList items={list} navigate={navigate} />
+          <NavList items={list} navigate={navigate} navHandler={props.navHandler} isActive={props.isActive} />
           <NavBot name={bot.name} icon={bot.icon} />
         </div>
       </nav>

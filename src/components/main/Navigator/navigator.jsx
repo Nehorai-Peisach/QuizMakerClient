@@ -6,6 +6,7 @@ import ManageQustions from 'components/questions/manageQuestions/ManageQustions'
 import EditQuestion from 'components/questions/editQuestion/editQuestion';
 import ReportByStudent from 'components/reports/reportByStudent/ReportByStudent';
 import ReportByQuiz from 'components/reports/reportByQuiz/ReportByQuiz';
+import Loading from 'components/publicComponents/Loading';
 
 const Navigator = forwardRef((props, ref) => {
   const [choosenComponent, setChoosenComponent] = useState();
@@ -43,7 +44,7 @@ const Navigator = forwardRef((props, ref) => {
         break;
     }
   };
-  return <div className='navigator_rapper'>{choosenComponent}</div>;
+  return choosenComponent ? <div className="navigator_rapper">{choosenComponent}</div> : <Loading />;
 });
 
 export default Navigator;

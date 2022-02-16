@@ -1,13 +1,18 @@
-import { useMemo } from 'react';
-import { GetQuizes } from 'components/helpers/QuizesRepo';
+import { useEffect, useMemo, useState } from 'react';
 import QuizesTable from './QuizesTable';
 import { Columns } from './Columns';
+import { GetQuizes } from 'components/helpers/QuizesRepo';
+import Loading from 'components/publicComponents/Loading';
 
 const ManageQuizes = (props) => {
-  const columns = useMemo(() => Columns, []);
-  const data = useMemo(() => GetQuizes(), []);
+  const [data, setData] = useState();
 
-  return <QuizesTable columns={columns} data={data} />;
+  useEffect(async () => {
+    const tmp = await GetQuizes();
+    setData(tmp);
+  }, []);
+
+  return data ? <QuizesTable data={data} /> : <Loading />;
 };
 
 export default ManageQuizes;
