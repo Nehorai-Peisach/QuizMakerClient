@@ -41,7 +41,6 @@ const NewTest = (props) => {
       ChangedDate: Date.now()
     };
     setTmpNewTest(tmp);
-    debugger;
     axios.post(
       'http://localhost:4000/api/quizes/addNewTest',
       // JSON.stringify(tmp)

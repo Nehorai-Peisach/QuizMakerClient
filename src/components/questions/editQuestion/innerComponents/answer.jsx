@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import "../../../../styles/editQuestion/innerStyles/answer.css"
 import TextBlock from 'components/publicComponents/textBlock';
 
 const Answer = (props) => {
