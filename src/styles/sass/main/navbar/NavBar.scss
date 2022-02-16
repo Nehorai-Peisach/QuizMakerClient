@@ -6,7 +6,7 @@
   height: 100vh;
   background-color: var(--bg-color);
   color: #fff;
-  padding: 1rem 1rem 2rem;
+  padding: 1rem;
   z-index: var(--z-fixed);
   transition: 0.5s;
 }
@@ -24,7 +24,7 @@
 }
 
 .comp-expander {
-  padding-left: calc(var(--nav-width) + 9.25rem);
+  padding-left: calc(var(--nav-width) + 10rem);
 }
 
 .bot {

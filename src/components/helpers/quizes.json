@@ -1,0 +1,16 @@
+{
+  "id": "this is id",
+  "company": "Company",
+  "language": "string",
+  "topic": "Topic",
+  "type": "Type",
+  "showAnswersAfter": "bool",
+  "introduction": "Paragraph",
+  "name": "string",
+  "passingGrade": "number",
+  "questions": [""],
+  "msgOnSuccess": "Paragraph",
+  "msgOnFailure": "Paragraph",
+  "delivery": "EmailDelivery",
+  "date": false
+}
