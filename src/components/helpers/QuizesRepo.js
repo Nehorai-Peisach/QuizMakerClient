@@ -1,7 +1,7 @@
-import data from './quizes.json';
+import axios from 'axios';
 
-//put here logic to server
-export const GetQuizes = () => {
-  //remove this
-  return data;
+export const GetQuizes = async () => {
+  await axios.get('http://localhost:4000/api/quizes/addNewTest').then((res) => {
+    return res;
+  });
 };
