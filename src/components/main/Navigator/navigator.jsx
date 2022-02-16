@@ -16,7 +16,6 @@ const Navigator = forwardRef((props, ref) => {
     },
   }));
   const changeComponent = (newComp) => {
-    debugger;
     switch (newComp) {
       case 'Home':
         setChoosenComponent(<Home />);
