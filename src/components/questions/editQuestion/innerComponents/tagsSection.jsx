@@ -1,4 +1,5 @@
 import React from 'react';
+import "../../../../styles/editQuestion/innerStyles/tagsSection.css"
 
 const tagsSection = (props) => {
   const onTagsChange = (event) => {

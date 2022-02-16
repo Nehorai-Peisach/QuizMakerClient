@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import FirstSection from './innerComponents/firstSection';
 import AnswerSection from './innerComponents/answerSection';
 import TagsSection from './innerComponents/tagsSection';
+import "../../../styles/editQuestion/editQuestion.css";
+import axios from 'axios';
+const uuid=require('uuid')
 
 const EditQuestion = (props) => {
   const [firstType, setFirstType] = useState('');
@@ -37,14 +40,19 @@ const EditQuestion = (props) => {
     />
   );
   const SaveHandler = () => {
+    debugger
     let newQuestion = {
-      type: firstType,
-      text: firstText,
-      textBelow: firstTextBelow,
-      answers: answersList,
-      tags: tagsList,
+      Id: uuid.v4(),
+      CompanyId:"Sela",
+      Type: firstType,
+      Text: firstText,
+      LowerText: firstTextBelow,
+      Answers: answersList,
+      Tags: tagsList,
     };
     setNewQuestion(newQuestion);
+    axios.post(
+      'http://localhost:4000/api/Questions/addQuestion',newQuestion);
   };
   return (
     <div className="editQuestion_container">

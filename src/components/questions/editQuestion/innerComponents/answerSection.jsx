@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import "../../../../styles/editQuestion/innerStyles/answerSection.css"
 import Answer from './answer';
 
 const AnswerSection = (props) => {
@@ -28,7 +29,6 @@ const AnswerSection = (props) => {
       tmpArr.push(tmpAnswer);
       tmpArrForList.push(tmpAnswerForList);
     }
-    console.log(tmpArrForList);
     setAnswersState([...tmpArr]);
     setAnswersList(() => {
       return [...tmpArrForList];
