@@ -43,7 +43,7 @@ const Navigator = forwardRef((props, ref) => {
         break;
     }
   };
-  return <div>{choosenComponent}</div>;
+  return <div className='navigator_rapper'>{choosenComponent}</div>;
 });
 
 export default Navigator;
