@@ -16,7 +16,6 @@ const Navigator = forwardRef((props, ref) => {
     },
   }));
   const changeComponent = (newComp) => {
-    debugger;
     switch (newComp) {
       case 'Home':
         setChoosenComponent(<Home />);
@@ -44,7 +43,7 @@ const Navigator = forwardRef((props, ref) => {
         break;
     }
   };
-  return <div>{choosenComponent}</div>;
+  return <div className='navigator_rapper'>{choosenComponent}</div>;
 });
 
 export default Navigator;
