@@ -3,7 +3,7 @@ import GeneralTestDetails from './innerComponents/generalTestDetails';
 import PassingTest from './innerComponents/passingTest';
 import FaillingTest from './innerComponents/faillingTest';
 import axios from 'axios';
-const uuid=require('uuid')
+const uuid=require('uuid');
 
 const NewTest = (props) => {
   const [tmpNewTest, setTmpNewTest] = useState({});
@@ -42,10 +42,7 @@ const NewTest = (props) => {
     };
     setTmpNewTest(tmp);
     axios.post(
-      'http://localhost:4000/api/quizes/addNewTest',
-      // JSON.stringify(tmp)
-      tmp
-    );
+      'http://localhost:4000/api/quizes/addNewTest',tmp);
   };
 
   const faillingBodyHandler = (message) => {
