@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 const uuid = require("uuid");
 
 const Login = (props) => {
   const [email, setEmail] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const { quizId } = useParams();
+
 
   const login = () => {
     if (email && firstName && lastName) {
@@ -17,15 +16,15 @@ const Login = (props) => {
         LastName: lastName,
         Email: email,
       };
-      axios.post("http://localhost:4000/api/students/addstudent", tmp);
-      //go to actual test
+     // axios.post("http://localhost:4000/api/students/addstudent", tmp);
+    
+     props.LogedIn(tmp);
     } else {
       alert("Please enter ALL the fields.");
     }
   };
   return (
     <div className="loginQuiz">
-      {quizId}
       <h3>Please enter your details</h3>
       <input
         type="text"

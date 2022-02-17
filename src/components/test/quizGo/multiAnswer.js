@@ -5,7 +5,7 @@ const MultiAnswer = (props) => {
         <label className="ans-container" key={"answer " + index}>
           <input type="checkbox" name="ans" className="ans-input"></input>
           <span className="ans-checkmark checkbox"></span>
-          {answer}
+          {answer.text}
         </label>
       ))}
     </div>

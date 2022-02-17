@@ -1,5 +1,5 @@
 const TestFotter = (props) => {
-
+  console.log(props.questions);
   return (
     <div className='ft'>
       <hr className='ft-hr' />

@@ -172,6 +172,74 @@ a:visited {
     background-color: #000;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); }
 
+.hd {
+  background-color: royalblue;
+  padding: 1rem;
+  text-align: left; }
+  .hd .hd-title {
+    color: white; }
+
+.bd {
+  padding: 1rem;
+  height: 70vh;
+  text-align: left; }
+  .bd .ans .ans-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    user-select: none; }
+    .bd .ans .ans-container .ans-input {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0; }
+    .bd .ans .ans-container .ans-checkmark {
+      position: absolute;
+      top: 0.2rem;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee; }
+    .bd .ans .ans-container .radio {
+      border-radius: 50%; }
+    .bd .ans .ans-container .checkbox {
+      border-radius: 0.3rem; }
+    .bd .ans .ans-container .ans-input:checked ~ .ans-checkmark:after {
+      display: block; }
+    .bd .ans .ans-container .ans-checkmark:after {
+      left: 10px;
+      top: 6px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg); }
+  .bd .ans .ans-container:hover .ans-input ~ .ans-checkmark {
+    background-color: #ccc; }
+  .bd .ans .ans-input:checked ~ .ans-checkmark {
+    background-color: #2196f3; }
+  .bd .ans .ans-input:checked:hover ~ .ans-checkmark {
+    background-color: #2196f3; }
+  .bd .ans .ans-checkmark:after {
+    content: '';
+    position: absolute;
+    display: none; }
+
+.ft {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .ft .ft-hr {
+    opacity: 1;
+    color: royalblue;
+    width: 80%; }
+  .ft .ft-title {
+    padding: 1rem;
+    color: royalblue; }
+
 .loginQuiz {
   display: flex;
   flex-direction: column;
