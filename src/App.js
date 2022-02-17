@@ -1,8 +1,8 @@
 import Main from "components/main/main";
 import Navigator from "components/main/Navigator/navigator";
 import data from "dummydata.json";
-import Tmp from './components/quizes/newTest/newTest'
-import dammyData from './dummydata.json'
+import { Route, Routes  } from 'react-router-dom';
+import QuizToDo from "./components/test/login/login";
 import React, {
   useState,
   forwardRef,
@@ -15,14 +15,17 @@ const App = () => {
   const navigate = (newComp) => {
     navigatorRef.current.move(newComp);
   };
-  const bla=dammyData.questions
+  const mainComp=(  <Main navigate={navigate}>
+    <Navigator ref={navigatorRef} />
+  </Main>);
+const [quizId, setQuizId] = useState("")
+
   return (
     <div className="App">
-      <Main navigate={navigate}>
-        {/* <Navigator ref={navigatorRef} /> */}
-{/* <Tmp questions={bla}/> */}
-<Tmp />
-      </Main>
+      <Routes >
+        <Route path="/" element={mainComp}/>
+        <Route path={`/doquiz/:quizId`} element={<QuizToDo/>} />
+      </Routes >
     </div>
   );
 };
