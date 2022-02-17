@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import Pagination from '../../publicComponents/table/Pagination';
-import Columns from './QuizesColumns';
+import Columns from './QuestionsColumns';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
   const columns = useMemo(() => Columns, []);
-  const [linkClickHandler, showClickHandler, editClickHandler, duplicateClickHandler, deleteClickHandler] = props.btns;
+  const [showClickHandler, editClickHandler, duplicateClickHandler, deleteClickHandler] = props.btns;
 
   const {
     getTableProps,
@@ -58,17 +58,13 @@ const QuizesTable = (props) => {
                     switch (index) {
                       case 0:
                         return <td {...cell.getCellProps()}>{i}</td>;
-                      case 1:
-                        return (
-                          <td {...cell.getCellProps()}>
-                            <button onClick={() => linkClickHandler(id)}>Copy</button>
-                          </td>
-                        );
                       case 5:
                         return (
                           <td {...cell.getCellProps()}>
+                            <button onClick={() => showClickHandler(id)}>show</button>
                             <button onClick={() => editClickHandler(id)}>edit</button>
                             <button onClick={() => duplicateClickHandler(id)}>duplicate</button>
+                            <button onClick={() => deleteClickHandler(id)}>delete</button>
                           </td>
                         );
                       default:

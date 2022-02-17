@@ -1,4 +1,4 @@
-export const Columns = [
+const Columns = [
   {
     Header: 'Id',
     accessor: 'Id',
@@ -24,3 +24,5 @@ export const Columns = [
     accessor: 'btns',
   },
 ];
+
+export default Columns;
