@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Test = (props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+ 
 
   const nextQuestion = (index) => {
     if (index+1 < props.questions.length) {
@@ -23,7 +24,7 @@ const Test = (props) => {
 
   return (
     <div>
-      <TestHeader title={props.title} />
+      <TestHeader title={props.Name} />
       <TestBody question={props.questions[currentQuestionIndex]} />
       <TestFotter
         index={currentQuestionIndex}

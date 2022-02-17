@@ -2,10 +2,10 @@ import Main from 'components/main/main';
 import Navigator from 'components/main/Navigator/navigator';
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { Route, Routes  } from 'react-router-dom';
-import QuizToDo from "./components/test/login/login";
+import QuizToDo from "./components/test/test";
 
 const App = () => {
-  const questions = data.questions;
+  // const questions = data.questions;
   const navigatorRef = useRef();
   const navigate = (newComp) => {
     navigatorRef.current.move(newComp);
