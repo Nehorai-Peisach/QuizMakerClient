@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import QuizesTable from './QuestionsTable';
 import { GetQuestions } from 'components/helpers/QuestionsRepo';
 import Loading from 'components/publicComponents/Loading';
-import { GetQuizes } from 'components/helpers/QuizesRepo';
 
 const ManageQuestions = (props) => {
   const [data, setData] = useState();
 
   useEffect(async () => {
-    const objects = await GetQuizes();
+    const objects = await GetQuestions();
     setData(objects);
   }, []);
 
