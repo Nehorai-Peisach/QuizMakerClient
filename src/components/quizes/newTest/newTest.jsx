@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GeneralTestDetails from './innerComponents/generalTestDetails';
 import PassingTest from './innerComponents/passingTest';
 import FaillingTest from './innerComponents/faillingTest';
+import QustionsChoosing from "./innerComponents/QustionsChoosing"
 import axios from 'axios';
 const uuid=require('uuid');
 
@@ -84,7 +85,7 @@ const NewTest = (props) => {
 
   return (
     <div className="newTest_container">
-      <GeneralTestDetails
+      {/* <GeneralTestDetails
         onHeaderChange={onHeaderChange}
         onMessageSuccessChange={onMessageSuccessChange}
         onMessageFailChange={onMessageFailChange}
@@ -101,7 +102,9 @@ const NewTest = (props) => {
       <FaillingTest
         faillingBodyHandler={faillingBodyHandler}
         faillingSubjectHandler={faillingSubjectHandler}
-      />
+      /> */}
+      <QustionsChoosing/>
+
       <div className="newTest_btn">
         <button onClick={handleSubmit}>Create New Test</button>
       </div>
