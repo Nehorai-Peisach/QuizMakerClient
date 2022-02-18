@@ -1,0 +1,14 @@
+.page_header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--page-header-bg-color);
+  margin-bottom: 1rem;
+  font-size: xx-large;
+  font-weight: bold;
+  color: black;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2rem;
+}

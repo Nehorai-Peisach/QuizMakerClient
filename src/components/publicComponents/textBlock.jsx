@@ -9,7 +9,7 @@ const TextBlock = (props) => {
   return (
     <div className="textBlock_main">
       <div className="textBlock_title">
-        <p>{props.title}</p>
+        <p className={props.className}>{props.title}</p>
       </div>
       <div className="textBlock_editor">
         <Editor

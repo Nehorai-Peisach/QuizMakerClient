@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react';
-import NewTest from 'components/quizes/newTest/newTest';
+import NewTest from 'components/quizes/newQuiz/NewQuiz';
 import Home from 'components/home/Home';
 import ManageQuizes from 'components/quizes/manageQuizes/ManageQuizes';
 import ManageQuestions from 'components/questions/manageQuestions/ManageQestions';
