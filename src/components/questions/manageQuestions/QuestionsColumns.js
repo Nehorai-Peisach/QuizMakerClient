@@ -1,23 +1,19 @@
 const Columns = [
   {
     Header: 'Id',
-    accessor: 'Id',
+    accessor: 'id',
   },
   {
     Header: 'Question',
-    accessor: 'Text',
+    accessor: 'text',
   },
   {
     Header: 'Last Update',
-    accessor: 'ChangedDate',
+    accessor: 'date',
   },
   {
     Header: 'Question Type',
-    accessor: 'Type',
-  },
-  {
-    Header: '# of Quizes',
-    accessor: 'num',
+    accessor: 'type',
   },
   {
     Header: '',

@@ -5,6 +5,7 @@ import Columns from './QuizesColumns';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
+  debugger;
   const columns = useMemo(() => Columns, []);
   const [linkClickHandler, showClickHandler, editClickHandler, duplicateClickHandler, deleteClickHandler] = props.btns;
 
@@ -57,7 +58,7 @@ const QuizesTable = (props) => {
 
                     switch (index) {
                       case 0:
-                        return <td {...cell.getCellProps()}>{i}</td>;
+                        return <td {...cell.getCellProps()}>{i + 1}</td>;
                       case 1:
                         return (
                           <td {...cell.getCellProps()}>

@@ -57,7 +57,7 @@ const QuizesTable = (props) => {
 
                     switch (index) {
                       case 0:
-                        return <td {...cell.getCellProps()}>{i}</td>;
+                        return <td {...cell.getCellProps()}>{i+1}</td>;
                       case 5:
                         return (
                           <td {...cell.getCellProps()}>
