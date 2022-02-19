@@ -430,37 +430,37 @@ a:visited {
   height: 100vh;
   overflow: hidden;
   background-color: var(--page-bg-color); }
-  .tablePage__ .tablePage__body {
+  .tablePage__body {
     max-height: 75%;
     padding: 2rem;
     overflow: auto; }
-    .tablePage__ .tablePage__body table {
+    .tablePage__body table {
       width: 100%;
       border-spacing: 0;
       background-color: white; }
-      .tablePage__ .tablePage__body table th,
-      .tablePage__ .tablePage__body table td {
+      .tablePage__body table th,
+      .tablePage__body table td {
         padding: 1rem;
         border-left: 1px solid #ccc; }
-        .tablePage__ .tablePage__body table th:last-child,
-        .tablePage__ .tablePage__body table td:last-child {
+        .tablePage__body table th:last-child,
+        .tablePage__body table td:last-child {
           border-right: 1px solid #ccc; }
-      .tablePage__ .tablePage__body table tr:nth-child(even) {
+      .tablePage__body table tr:nth-child(even) {
         background-color: #f2f2f2; }
-      .tablePage__ .tablePage__body table tr:hover {
+      .tablePage__body table tr:hover {
         background-color: #ddd;
         cursor: pointer; }
-      .tablePage__ .tablePage__body table th {
+      .tablePage__body table th {
         text-align: left;
         background-color: #04aa6d;
         color: white;
         border-color: #008152;
         user-select: none; }
-    .tablePage__ .tablePage__body__selected {
+    .tablePage__body__selected {
       background-color: #04c37d !important; }
-      .tablePage__ .tablePage__body__selected:nth-child(even) {
+      .tablePage__body__selected:nth-child(even) {
         background-color: #008152 !important; }
-      .tablePage__ .tablePage__body__selected:hover {
+      .tablePage__body__selected:hover {
         background-color: #00422a !important; }
   .tablePage__fotter {
     width: 100%;
