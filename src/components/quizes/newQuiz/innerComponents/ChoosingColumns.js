@@ -1,7 +1,7 @@
 const Columns = [
   {
     Header: 'Question',
-    accessor: 'Text',
+    accessor: 'text',
   },
   {
     Header: '',

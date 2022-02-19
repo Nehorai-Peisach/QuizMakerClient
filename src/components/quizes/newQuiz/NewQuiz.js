@@ -55,13 +55,6 @@ const NewQuiz = (props) => {
   const onHeaderChange = (event) => {
     setHeader(event);
   };
-  const onQuestionSelect = (isSelected, obj) => {
-    setQuestionsId((preState) => {
-      isSelected ? preState.push(obj._id) : preState.filter((a) => a != obj._id);
-
-      return preState;
-    });
-  };
   const onMessageSuccessChange = (event) => {
     setSuccessMsg(event);
   };
@@ -69,21 +62,12 @@ const NewQuiz = (props) => {
     setFailMsg(event);
   };
 
-  const [currentPageStage, setCurrentPageStage] = useState(0);
-  const nextPageStage = (index) => {
-    if (index + 1 < props.questions.length) {
-      setCurrentPageStage((prevState) => {
-        return prevState + 1;
-      });
-    }
-  };
+  const onQuestionSelect = (isSelected, obj) => {
+    setQuestionsId((preState) => {
+      isSelected ? preState.push(obj._id) : preState.filter((a) => a != obj._id);
 
-  const previosPageStage = (index) => {
-    if (index > 0) {
-      setCurrentPageStage((prevState) => {
-        return prevState - 1;
-      });
-    }
+      return preState;
+    });
   };
 
   const generalDetailsInputs = [onLanguageChange, onTypeChange, onNameChange, onGradeChange, onShowCorrectAnswerChange];
@@ -93,6 +77,23 @@ const NewQuiz = (props) => {
     { header: "Quiz's Messages", page: <MessagesDetails inputs={messagesDetailsInputs} /> },
     { header: "Quiz's Questions", page: <QustionsChoosing onQuestionSelect={onQuestionSelect} /> },
   ];
+
+  const [currentPageStage, setCurrentPageStage] = useState(0);
+  const nextPageStage = () => {
+    if (currentPageStage + 1 < pageStages.length) {
+      setCurrentPageStage((prevState) => {
+        return prevState + 1;
+      });
+    }
+  };
+
+  const previosPageStage = () => {
+    if (currentPageStage > 0) {
+      setCurrentPageStage((prevState) => {
+        return prevState - 1;
+      });
+    }
+  };
 
   return (
     <div className="create_quiz">
