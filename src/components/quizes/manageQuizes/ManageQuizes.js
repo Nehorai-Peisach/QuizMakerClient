@@ -12,7 +12,9 @@ const ManageQuizes = (props) => {
   }, []);
 
   const linkClickHandler = (id) => {
-    console.log(id);
+    let url =`http://localhost:3000/doquiz/${id}`;
+    navigator.clipboard.writeText(url);
+    debugger
   };
   const editClickHandler = (id) => {
     console.log(id);

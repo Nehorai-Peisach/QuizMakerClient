@@ -17,7 +17,8 @@ const NewQuiz = (props) => {
   const [questionsId, setQuestionsId] = useState([]);
   const [successMsg, setSuccessMsg] = useState();
   const [failMsg, setFailMsg] = useState();
-
+  const [currentPageStage, setCurrentPageStage] = useState(0);
+  
   const handleSubmit = () => {
     if (!QuizValidator(language, type, name, passGrade, header, questionsId, successMsg, failMsg)) return;
 
@@ -51,7 +52,6 @@ const NewQuiz = (props) => {
   const onShowCorrectAnswerChange = (event) => {
     setIsShowResult(event);
   };
-
   const onHeaderChange = (event) => {
     setHeader(event);
   };
@@ -61,7 +61,6 @@ const NewQuiz = (props) => {
   const onMessageFailChange = (event) => {
     setFailMsg(event);
   };
-
   const onQuestionSelect = (isSelected, obj) => {
     setQuestionsId((preState) => {
       isSelected ? preState.push(obj._id) : preState.filter((a) => a != obj._id);
@@ -78,7 +77,6 @@ const NewQuiz = (props) => {
     { header: "Quiz's Questions", page: <QustionsChoosing onQuestionSelect={onQuestionSelect} /> },
   ];
 
-  const [currentPageStage, setCurrentPageStage] = useState(0);
   const nextPageStage = () => {
     if (currentPageStage + 1 < pageStages.length) {
       setCurrentPageStage((prevState) => {
@@ -86,7 +84,6 @@ const NewQuiz = (props) => {
       });
     }
   };
-
   const previosPageStage = () => {
     if (currentPageStage > 0) {
       setCurrentPageStage((prevState) => {
