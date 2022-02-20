@@ -4,10 +4,7 @@ const SingleAnswer = (props) => {
 
 
 const onAnserClick=(event)=>{
-
-  debugger
-
-
+  props.onAnswerSelect(event)
 }
 
   return (

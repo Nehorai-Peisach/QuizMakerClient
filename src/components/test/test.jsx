@@ -1,49 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Login from "./login/login";
 import Question from "./quizGo/questionComp";
-import { GetQuiz } from 'components/helpers/QuizesRepo';
+import { GetQuiz } from "components/helpers/QuizesRepo";
 
-const Test =  (props) => {
-const[isLoged,setIsLoged]=useState(false);
-const[student,setStudent]=useState({});
-const[score,setScore]=useState(0);
-const[completedQuiz, setCompletedQuiz] = useState({});
-const[quiz,setQuiz]=useState("s");
-const { quizId } = useParams();
+const Test = (props) => {
+  const [isLoged, setIsLoged] = useState(false);
+  const [student, setStudent] = useState({});
+  const [student_answers, setStudent_answers] = useState([]);
 
-const finishQuiz=()=>{
-  let tmp={
-  Id:'123',
-  TopicId:quiz.Topic,
-  Name:quiz.Name,
-  PassingGrade:quiz.PassingGrade,
-  Questions:quiz.Questions,
-  Student:student,
-  StudentAnswers:[],
-  Score:0,
-  DoneDate: Date.now(),
+  // const [score, setScore] = useState(0);
+  // const [completedQuiz, setCompletedQuiz] = useState({});
+  const [quiz, setQuiz] = useState({});
+  const { quizId } = useParams();
 
-}
-}
-const LogedIn=async(student)=>{
-  let tmpQuiz=await GetQuiz(quizId);
-  setQuiz(()=>{return tmpQuiz});
+  useEffect(async () => {
+    let tmpQuiz = await GetQuiz(quizId);
+    setQuiz(() => {
+      return tmpQuiz;
+    });
+  }, []);
+
+  const finishQuiz = () => {
+    let tmp = {
+      quiz_id: quiz._id,
+      student_id: student.Id,
+      student_answers: student_answers,
+      score: 0,
+      date: Date.now(),
+    };
+    console.log(tmp);
+  };
+  const onStudentAnswersChange = (studentAnswer) => {
+    debugger;
+    let tmpList = student_answers;
+    if (tmpList.find((s) => s.question_id === studentAnswer.question_id)) {
+      tmpList.splice(
+        tmpList.findIndex((a) => a.question_id === studentAnswer.question_id),
+        1
+      );
+    }
+    tmpList.push(studentAnswer);
+    setStudent_answers(tmpList);
+  };
+  const LogedIn = async (student) => {
     setStudent(student);
     setIsLoged(true);
-    
-}
-console.log(quiz);
+  };
   return (
     <div>
-        {
-        isLoged?
-        <Question quizId={quizId} questions={quiz.Questions}/>
-        :
-        <Login LogedIn={LogedIn}/>
-        }
+      {isLoged ? (
+        <Question
+          questions={quiz.questions}
+          finishQuiz={finishQuiz}
+          onStudentAnswersChange={onStudentAnswersChange}
+        />
+      ) : (
+        <Login LogedIn={LogedIn} />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Test
+export default Test;
