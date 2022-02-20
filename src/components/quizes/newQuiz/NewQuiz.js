@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuizValidator from './innerComponents/QuizValidator';
 import { AddQuiz } from 'components/helpers/QuizesRepo';
 import CreateQuizBody from './innerComponents/CreateQuizBody';
@@ -8,17 +8,27 @@ import MessagesDetails from './innerComponents/MessagesDetails';
 import QustionsChoosing from './innerComponents/QustionsChoosing';
 
 const NewQuiz = (props) => {
-  const [language, setLanguagee] = useState();
+  const [language, setLanguage] = useState();
   const [type, setType] = useState();
   const [name, setName] = useState();
   const [passGrade, setPassGrade] = useState();
   const [isShowResult, setIsShowResult] = useState(false);
   const [header, setHeader] = useState();
-  const [questionsId, setQuestionsId] = useState([]);
   const [successMsg, setSuccessMsg] = useState();
   const [failMsg, setFailMsg] = useState();
+  const [questionsId, setQuestionsId] = useState([]);
 
-  const handleSubmit = () => {
+  const onLanguage = (input) => setLanguage(input);
+  const onType = (input) => setType(input);
+  const onName = (input) => setName(input);
+  const onPassGrade = (input) => setPassGrade(input);
+  const onIsShowResult = (input) => setIsShowResult(input);
+
+  const onHeader = (input) => setHeader(input);
+  const onSuccessMsg = (input) => setSuccessMsg(input);
+  const onFailMsg = (input) => setFailMsg(input);
+
+  const onSubmitHandler = () => {
     if (!QuizValidator(language, type, name, passGrade, header, questionsId, successMsg, failMsg)) return;
 
     const quiz = {
@@ -33,36 +43,11 @@ const NewQuiz = (props) => {
       fail_msg: failMsg,
       date: Date.now(),
     };
+
     AddQuiz(quiz);
   };
 
-  const onLanguageChange = (event) => {
-    setLanguagee(event);
-  };
-  const onTypeChange = (event) => {
-    setType(event);
-  };
-  const onNameChange = (event) => {
-    setName(event);
-  };
-  const onGradeChange = (event) => {
-    setPassGrade(event);
-  };
-  const onShowCorrectAnswerChange = (event) => {
-    setIsShowResult(event);
-  };
-
-  const onHeaderChange = (event) => {
-    setHeader(event);
-  };
-  const onMessageSuccessChange = (event) => {
-    setSuccessMsg(event);
-  };
-  const onMessageFailChange = (event) => {
-    setFailMsg(event);
-  };
-
-  const onQuestionSelect = (isSelected, obj) => {
+  const onQuestion = (isSelected, obj) => {
     setQuestionsId((preState) => {
       isSelected ? preState.push(obj._id) : preState.filter((a) => a != obj._id);
 
@@ -70,12 +55,12 @@ const NewQuiz = (props) => {
     });
   };
 
-  const generalDetailsInputs = [onLanguageChange, onTypeChange, onNameChange, onGradeChange, onShowCorrectAnswerChange];
-  const messagesDetailsInputs = [onHeaderChange, onMessageFailChange, onMessageSuccessChange];
+  const generalDetailsInputs = [language, onLanguage, type, onType, name, onName, passGrade, onPassGrade, isShowResult, onIsShowResult];
+  const messagesDetailsInputs = [header, onHeader, failMsg, onFailMsg, successMsg, onSuccessMsg];
   const pageStages = [
     { header: "General Quiz's Details", page: <GeneralDetails inputs={generalDetailsInputs} /> },
     { header: "Quiz's Messages", page: <MessagesDetails inputs={messagesDetailsInputs} /> },
-    { header: "Quiz's Questions", page: <QustionsChoosing onQuestionSelect={onQuestionSelect} /> },
+    { header: "Quiz's Questions", page: <QustionsChoosing onQuestionSelect={onQuestion} /> },
   ];
 
   const [currentPageStage, setCurrentPageStage] = useState(0);
@@ -98,7 +83,13 @@ const NewQuiz = (props) => {
   return (
     <div className="create_quiz">
       <CreateQuizBody header={pageStages[currentPageStage].header} page={pageStages[currentPageStage].page} />
-      <CreateQuizFotter onNext={nextPageStage} onPrevios={previosPageStage} />
+      <CreateQuizFotter
+        onNext={nextPageStage}
+        onPrevios={previosPageStage}
+        onSubmit={onSubmitHandler}
+        stagesNum={pageStages.length}
+        currentStage={currentPageStage}
+      />
     </div>
   );
 };

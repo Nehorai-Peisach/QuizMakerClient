@@ -11,4 +11,20 @@
   align-items: center;
 
   padding: 2rem;
+
+  user-select: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.font {
+  &__big {
+    font-size: large;
+  }
+
+  &__small {
+    font-size: small;
+  }
 }

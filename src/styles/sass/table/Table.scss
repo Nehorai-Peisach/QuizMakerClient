@@ -3,10 +3,11 @@
   height: 100vh;
   overflow: hidden;
   background-color: var(--page-bg-color);
+}
 
-  &__
+.table {
   &__body {
-    max-height: 75%;
+    max-height: 70.7vh;
     padding: 2rem;
     overflow: auto;
 
@@ -48,6 +49,10 @@
       &:hover {
         background-color: #00422a !important;
       }
+    }
+
+    .id_row {
+      width: 0;
     }
   }
   &__fotter {

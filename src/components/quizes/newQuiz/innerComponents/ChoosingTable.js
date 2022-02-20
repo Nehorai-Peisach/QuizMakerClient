@@ -31,9 +31,8 @@ const QuizesTable = (props) => {
   );
 
   return (
-    <div className="tablePage">
-      <div className="tablePage__header"></div>
-      <div className="tablePage__body">
+    <div>
+      <div className="table__body">
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -70,7 +69,7 @@ const QuizesTable = (props) => {
           </tbody>
         </table>
       </div>
-      <div className="tablePage__fotter">
+      <div className="table__fotter">
         <Pagination
           previousPage={previousPage}
           nextPage={nextPage}

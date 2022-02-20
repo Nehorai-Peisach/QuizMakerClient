@@ -1,8 +1,27 @@
+import { useEffect, useState } from 'react';
+
 const CreateQuizFotter = (props) => {
+  const [btn, setBtn] = useState();
+  useEffect(() => {
+    props.currentStage !== props.stagesNum - 1
+      ? setBtn(
+          <div className="btn" onClick={props.onNext}>
+            Next
+          </div>
+        )
+      : setBtn(
+          <div className="btn submit" onClick={props.onSubmit}>
+            Submit
+          </div>
+        );
+  }, [props.currentStage]);
+
   return (
     <div className="create_quiz__fotter">
-      <button onClick={props.onPrevios}>pre</button>
-      <button onClick={props.onNext}>next</button>
+      <div className="btn" onClick={props.onPrevios}>
+        Previos
+      </div>
+      <>{btn}</>
     </div>
   );
 };

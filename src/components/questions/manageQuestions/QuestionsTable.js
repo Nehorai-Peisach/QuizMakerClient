@@ -32,8 +32,8 @@ const QuizesTable = (props) => {
 
   return (
     <div className="tablePage">
-      <div className="tablePage__header"></div>
-      <div className="tablePage__body">
+      <div className="page_header">Manage Questions</div>
+      <div className="table__body">
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -57,7 +57,11 @@ const QuizesTable = (props) => {
 
                     switch (index) {
                       case 0:
-                        return <td {...cell.getCellProps()}>{i+1}</td>;
+                        return (
+                          <td className="id_row" {...cell.getCellProps()}>
+                            {i + 1}
+                          </td>
+                        );
                       case 5:
                         return (
                           <td {...cell.getCellProps()}>
@@ -77,7 +81,7 @@ const QuizesTable = (props) => {
           </tbody>
         </table>
       </div>
-      <div className="tablePage__fotter">
+      <div className="table__fotter">
         <Pagination
           previousPage={previousPage}
           nextPage={nextPage}
