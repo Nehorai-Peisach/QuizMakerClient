@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 const TextBlock = (props) => {
   const onEditorStateChange = (event) => {
     props.onMessageChange(event.getCurrentContent().getPlainText());
@@ -12,12 +11,7 @@ const TextBlock = (props) => {
         <p className={props.className}>{props.title}</p>
       </div>
       <div className="textBlock_editor">
-        <Editor
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          onEditorStateChange={onEditorStateChange}
-        />
+
       </div>
     </div>
   );

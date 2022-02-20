@@ -15,9 +15,10 @@ const QustionsChoosing = (props) => {
     console.log(obj);
   };
   const checkClickHandler = (element, obj) => {
+    debugger;
     if (element.className === '') {
       props.onQuestionSelect(true, obj);
-      element.className = 'tablePage__body__selected';
+      element.className = 'table__body__selected';
     } else {
       props.onQuestionSelect(false, obj);
       element.className = '';

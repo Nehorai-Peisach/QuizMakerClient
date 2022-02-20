@@ -1,79 +1,30 @@
-import React, { useState } from 'react';
-import TextBlock from 'components/publicComponents/textBlock';
+import DropdownComponent from 'components/publicComponents/DropdownComponent';
+import InputComponent from 'components/publicComponents/InputComponent';
+import SwitchComponent from 'components/publicComponents/SwitchComponent';
 
 const GeneralDetails = (props) => {
-  const onHeaderChange = (event) => {
-    props.onHeaderChange(event);
-  };
-  const onMessageSuccessChange = (event) => {
-    props.onMessageSuccessChange(event);
-  };
-  const onMessageFailChange = (event) => {
-    props.onMessageFailChange(event);
-  };
-  const onLanguegeChange = (event) => {
-    props.onLanguegeChange(event.target.value);
-  };
-  const onTypeChange = (event) => {
-    props.onTypeChange(event.target.value);
-  };
-  const onNameChange = (event) => {
-    props.onNameChange(event.target.value);
-  };
-  const onGradeChange = (event) => {
-    props.onGradeChange(event.target.value);
-  };
-  const onShowCorrectAnswerChange = (event) => {
-    props.onShowCorrectAnswerChange(event.target.value);
-  };
+  const [language, setLanguagee, type, setType, name, setName, passGrade, setPassGrade, isShowResult, setIsShowResult] = props.inputs;
 
+  const Languages = ['English', 'Hebrew'];
+  const types = ['random-orderd', 'pre-orderd'];
   return (
     <div className="create_quiz__body__page">
-      <div className="general_p_field">
-        <p>Field of study</p>
-      </div>
-      <div className="general_field">
-        <p>Development</p>
-      </div>
-      <div className="general_p_lung">
-        <p>Languege</p>
-      </div>
-      <div className="general_lung">
-        <select onChange={(e) => props.onLanguageChange(e.target.value)}>
-          <option value="English">English</option>
-          <option value="Hebrew">Hebrew</option>
-        </select>
-      </div>
-      <div className="general_p_type">
-        <p>Test type: </p>
-      </div>
-      <div className="general_type">
-        <select onChange={onTypeChange}>
-          <option value="English">English</option>
-          <option value="Hebrew">Hebrew</option>
-        </select>
-      </div>
-      <div className="general_p_name">
-        <p>Test name: </p>
-      </div>
-      <div className="general_name">
-        <input type="text" placeholder="Enter name" onChange={onNameChange} />
-      </div>
-      <div className="general_p_grade">
-        <p>Passing Grade: </p>
-      </div>
-      <div className="general_grade">
-        <input type="number" placeholder="Enter grade" onChange={onGradeChange} />
-      </div>
-      <div className="general_p_showGradeAfter">
-        <p>Show correct answer after submmision</p>
-      </div>
-      <div className="general_showGradeAfter">
-        <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={true} />
-        Yes
-        <input type="radio" name="myGroupName" onChange={onShowCorrectAnswerChange} value={false} />
-        No
-      </div>
+      <div className="create_quiz__body__page__field font__big bold">Quiz Topic: Development</div>
+      <DropdownComponent value={language} setValue={setLanguagee} items={Languages}>
+        Quiz Language:
+      </DropdownComponent>
+      <DropdownComponent value={type} setValue={setType} items={types}>
+        Quiz Type:
+      </DropdownComponent>
+      <InputComponent value={name} setValue={setName} placeholder="Enter Quiz name">
+        Quiz Name:
+      </InputComponent>
+      <InputComponent value={passGrade} setValue={setPassGrade} type="number" placeholder="Enter only numbers">
+        Quiz Passing Grade:
+      </InputComponent>
+      <SwitchComponent value={isShowResult} setValue={setIsShowResult}>
+        Show correct answer after submmision:
+      </SwitchComponent>
     </div>
   );
 };
