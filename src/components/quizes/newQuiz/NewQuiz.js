@@ -17,6 +17,7 @@ const NewQuiz = (props) => {
   const [successMsg, setSuccessMsg] = useState();
   const [failMsg, setFailMsg] = useState();
   const [questionsId, setQuestionsId] = useState([]);
+const [currentPageStage, setCurrentPageStage] = useState(0)
 
   const onLanguage = (input) => setLanguage(input);
   const onType = (input) => setType(input);

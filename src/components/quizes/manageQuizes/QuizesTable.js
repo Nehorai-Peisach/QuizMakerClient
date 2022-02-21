@@ -5,7 +5,6 @@ import Columns from './QuizesColumns';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
-  debugger;
   const columns = useMemo(() => Columns, []);
   const [linkClickHandler, showClickHandler, editClickHandler, duplicateClickHandler, deleteClickHandler] = props.btns;
 

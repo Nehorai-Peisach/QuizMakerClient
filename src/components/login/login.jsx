@@ -15,7 +15,7 @@ const LoginSystem = (props) => {
       LastName: lastName,
       Email: email,
     };
-    axios.post('http://localhost:4000/api/students/addstudent',tmp);
+    axios.post('http://localhost:4000/api/students/addStudent',tmp);
 //go to actual test
 
 }else{
