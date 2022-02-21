@@ -1,33 +1,36 @@
 import TestHeader from "./testHeader";
 import TestBody from "./testBody";
 import TestFotter from "./testFotter";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { isPropertySignature } from "typescript";
 
 const QuestionsComponent = (props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [studentAnswer, setStudentAnswer] = useState();
+  const answerRef=useRef();
+  answerRef.current=studentAnswer;
 
-  const onAnswerSelect = (studentAnswer) => {
-    setStudentAnswer(studentAnswer);
+  const onAnswerSelect = (newStudentAnswer) => {
+    setStudentAnswer(newStudentAnswer)
   };
-
-  const nextQuestion = (index) => {
-    if (index + 1 < props.questions.length) {
-      props.onStudentAnswersChange(studentAnswer);
-      setCurrentQuestionIndex((prevState) => {
-        return prevState + 1;
-      });
-    }
+  const nextQuestion = () => {
+    props.onStudentAnswersChange(answerRef.current);
+    setCurrentQuestionIndex((prevState) => {
+      return prevState + 1;
+    });
   };
-  const previosQuestion = (index) => {
-    if (index > 0) {
-      props.onStudentAnswersChange(studentAnswer);
+  const previosQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      props.onStudentAnswersChange(answerRef.current);
       setCurrentQuestionIndex((prevState) => {
         return prevState - 1;
       });
     }
   };
-
+  const submitQuiz = () => {
+    props.onStudentAnswersChange(answerRef.current);
+    props.onSubmitPressed();
+  };
   return (
     <div>
       <TestHeader title={props.Name} />
@@ -38,8 +41,10 @@ const QuestionsComponent = (props) => {
       <TestFotter
         index={currentQuestionIndex}
         questions={props.questions}
-        previosQuestion={previosQuestion}
-        nextQuestion={nextQuestion}
+        currentStage={currentQuestionIndex}
+        onPrevios={previosQuestion}
+        onNext={nextQuestion}
+        onSubmit={submitQuiz}
       />
     </div>
   );

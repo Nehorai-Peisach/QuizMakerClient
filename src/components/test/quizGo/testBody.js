@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MultiAnswer from "./multiAnswer";
 import SingleAnswer from "./singleAnswer";
 const TestBody = (props) => {
-  
+  const [questionId, setQuestionId] = useState(props.question._id);
 
   const onAnswerSelect = (answers) => {
-   props.onAnswerSelect({ question_id: props.question._id, answers: answers });
+    props.onAnswerSelect({ question_id: questionId, answers: answers });
   };
-
+  useEffect(() => {
+    setQuestionId(props.question._id);
+  }, [props.question]);
   return (
     <div className="bd">
       <h2 className={"bd-title"}>{props.question.title}</h2>
@@ -21,6 +23,7 @@ const TestBody = (props) => {
         <MultiAnswer
           answers={props.question.answers}
           onAnswerSelect={onAnswerSelect}
+          questionId={questionId}
         />
       )}
     </div>
