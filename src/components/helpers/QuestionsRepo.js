@@ -7,3 +7,13 @@ export const GetQuestions = async () => {
   });
   return result;
 };
+
+export const AddQuestion = async (question) => {
+  let result;
+  await axios
+    .post('http://localhost:4000/api/questions/addQuestion', question)
+    .then(() => (result = true))
+    .catch(() => (result = false));
+
+  return result;
+};

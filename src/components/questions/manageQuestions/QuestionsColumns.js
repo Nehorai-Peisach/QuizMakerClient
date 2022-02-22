@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 const Columns = [
   {
     Header: 'Id',
@@ -9,7 +11,10 @@ const Columns = [
   },
   {
     Header: 'Last Update',
-    accessor: 'date',
+    accessor: 'updatedAt',
+    Cell: ({ value }) => {
+      return format(new Date(value), 'dd//MM//yy - HH:mm');
+    },
   },
   {
     Header: 'Question Type',

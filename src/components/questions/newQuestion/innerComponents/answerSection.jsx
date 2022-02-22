@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import "../../../../styles/editQuestion/innerStyles/answerSection.css"
 import Answer from './answer';
 
 const AnswerSection = (props) => {

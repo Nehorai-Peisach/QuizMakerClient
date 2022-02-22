@@ -5,7 +5,6 @@ import Loading from 'components/publicComponents/Loading';
 
 const QustionsChoosing = (props) => {
   const [data, setData] = useState();
-  const [className, setclassName] = useState('')
 
   useEffect(async () => {
     const objects = await GetQuestions();
@@ -15,20 +14,8 @@ const QustionsChoosing = (props) => {
   const showClickHandler = (obj) => {
     console.log(obj);
   };
-  const checkClickHandler = (element, obj) => {
-    if (element.className === '') {
-      props.onQuestionSelect(true, obj);
-      element.className = 'table__body__selected';
-    } else {
-      props.onQuestionSelect(false, obj);
-      element.className = '';
-    }
-    console.log(element);
-  };
 
-  const btns = [showClickHandler, checkClickHandler];
-
-  return data ? <ChoosingTable data={data} btns={btns} /> : <Loading />;
+  return data ? <ChoosingTable data={data} showClickHandler={showClickHandler} onQuestionsId={props.onQuestionsId} /> : <Loading />;
 };
 
 export default QustionsChoosing;

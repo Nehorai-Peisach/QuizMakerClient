@@ -1,19 +1,20 @@
-import { useMemo } from 'react';
-import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table';
+import { useEffect, useState, useMemo } from 'react';
+import { useTable, usePagination, useSortBy, useGlobalFilter, useRowSelect } from 'react-table';
 import Pagination from 'components/publicComponents/table/Pagination';
 import Columns from './ChoosingColumns';
-import GlobalFilter from 'components/publicComponents/table/GlobalFilter';
+import Searchbar from 'components/publicComponents/table/Searchbar';
+import Checkbox from 'components/publicComponents/table/Checkbox';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
   const columns = useMemo(() => Columns, []);
-  const [showClickHandler, checkClickHandler] = props.btns;
 
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
+    selectedFlatRows,
     state,
     setGlobalFilter,
     page,
@@ -31,14 +32,34 @@ const QuizesTable = (props) => {
     },
     useGlobalFilter,
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => {
+        return [
+          {
+            id: 'selection',
+            Header: ({ getToggleAllRowsSelectedProps }) => <Checkbox {...getToggleAllRowsSelectedProps()} />,
+            Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
+          },
+          ...columns,
+        ];
+      });
+    }
   );
 
   const { globalFilter } = state;
+  useEffect(() => {
+    if (!selectedFlatRows) return;
+
+    const tmp = [];
+    selectedFlatRows.forEach((row) => tmp.push(row.original._id));
+    props.onQuestionsId(tmp);
+  }, [selectedFlatRows]);
 
   return (
     <div>
-      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <Searchbar filter={globalFilter} setFilter={setGlobalFilter} />
       <div className="table__body">
         <table {...getTableProps()}>
           <thead>
@@ -57,13 +78,19 @@ const QuizesTable = (props) => {
             {page.map((row, i) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()} onClick={(e) => checkClickHandler(e.target.parentNode, row.original)}>
+                <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
                     switch (index) {
-                      case 1:
+                      case 0:
                         return (
-                          <td {...cell.getCellProps()}>
-                            <button onClick={() => showClickHandler(row.original)}>show</button>
+                          <td className="td__minimum" {...cell.getCellProps()}>
+                            {cell.render('Cell')}
+                          </td>
+                        );
+                      case 2:
+                        return (
+                          <td className="td__minimum" {...cell.getCellProps()}>
+                            <button onClick={() => props.showClickHandler(row.original)}>show</button>
                           </td>
                         );
                       default:
