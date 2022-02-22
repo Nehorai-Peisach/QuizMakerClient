@@ -19,7 +19,7 @@ const GeneralDetails = (props) => {
       <InputComponent value={name} setValue={setName} placeholder="Enter Quiz name">
         Quiz Name:
       </InputComponent>
-      <InputComponent value={passGrade} setValue={setPassGrade} type="number" placeholder="Enter only numbers">
+      <InputComponent value={passGrade} setValue={setPassGrade} type="number" placeholder="Enter numbers 1 - 100">
         Quiz Passing Grade:
       </InputComponent>
       <SwitchComponent value={isShowResult} setValue={setIsShowResult}>

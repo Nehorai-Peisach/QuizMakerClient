@@ -12,6 +12,7 @@ const ManageQuestions = (props) => {
   }, []);
 
   const showClickHandler = (id) => {
+    debugger
     console.log(id);
   };
   const editClickHandler = (id) => {

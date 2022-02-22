@@ -3,7 +3,7 @@ import NewTest from 'components/quizes/newQuiz/NewQuiz';
 import Home from 'components/home/Home';
 import ManageQuizes from 'components/quizes/manageQuizes/ManageQuizes';
 import ManageQuestions from 'components/questions/manageQuestions/ManageQestions';
-import EditQuestion from 'components/questions/editQuestion/editQuestion';
+import EditQuestion from 'components/questions/newQuestion/NewQuestion';
 import ReportByStudent from 'components/reports/reportByStudent/ReportByStudent';
 import ReportByQuiz from 'components/reports/reportByQuiz/ReportByQuiz';
 import Loading from 'components/publicComponents/Loading';

@@ -6,10 +6,9 @@
 }
 
 .table {
-
   &__body {
     max-height: 70.7vh;
-    padding: 2rem;
+    padding: 1rem;
     overflow: auto;
 
     table {
@@ -64,7 +63,6 @@
     align-items: center;
 
     .pagination {
-      padding: 0.5rem;
       display: flex;
       align-items: flex-end;
 

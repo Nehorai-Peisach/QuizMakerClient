@@ -1,16 +1,25 @@
 import { useEffect, useState } from 'react';
 
 const InputComponent = (props) => {
+  const value = props.value;
   const type = props.type ? props.type : 'text';
-  const isRequired = props.isRequired ? props.isRequired : true;
+  const limit = props.limit ? props.limit : 100;
+  const isRequired = props.isRequired !== undefined ? props.isRequired : true;
   const [input, setInput] = useState('component__input__input green');
 
   useEffect(() => {
-    !isRequired
-      ? setInput('component__input__input green')
-      : props.value && props.value.length > 0
-      ? setInput('component__input__input green')
-      : setInput('component__input__input red');
+    let input = '';
+    isRequired
+      ? type === 'number'
+        ? value && value > 0 && value <= limit
+          ? (input = 'component__input__input green')
+          : (input = 'component__input__input red')
+        : value && value.length > 0
+        ? (input = 'component__input__input green')
+        : (input = 'component__input__input red')
+      : (input = 'component__input__input green');
+
+    setInput(input);
   }, [props.value]);
 
   return (

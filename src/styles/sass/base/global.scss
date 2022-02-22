@@ -28,3 +28,41 @@
     font-size: small;
   }
 }
+
+.btn {
+  display: inline-flex;
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 10rem;
+  background-color: var(--bg-color);
+  color: white;
+  border-radius: 0.5rem;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--first-color);
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.submit {
+  background-color: green;
+  &:hover {
+    background-color: rgb(4, 172, 4);
+  }
+}
+
+.unclickable {
+  background-color: gray;
+  &:hover {
+    background-color: gray;
+    cursor: default;
+  }
+}
+
+.center {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}

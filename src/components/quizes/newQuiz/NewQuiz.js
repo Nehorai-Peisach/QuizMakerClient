@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import QuizValidator from './innerComponents/QuizValidator';
 import { AddQuiz } from 'components/helpers/QuizesRepo';
-import CreateQuizBody from './innerComponents/CreateQuizBody';
-import CreateQuizFotter from './innerComponents/CreateQuizFotter';
+import CreateBody from '../../publicComponents/CreateBody';
 import GeneralDetails from './innerComponents/GeneralDetails';
 import MessagesDetails from './innerComponents/MessagesDetails';
 import QustionsChoosing from './innerComponents/QustionsChoosing';
+import Alerter from 'components/helpers/Alerter';
+import NextFowordFotter from '../../publicComponents/NextFowordFotter';
 
 const NewQuiz = (props) => {
   const [language, setLanguage] = useState();
@@ -17,7 +18,6 @@ const NewQuiz = (props) => {
   const [successMsg, setSuccessMsg] = useState();
   const [failMsg, setFailMsg] = useState();
   const [questionsId, setQuestionsId] = useState([]);
-const [currentPageStage, setCurrentPageStage] = useState(0)
 
   const onLanguage = (input) => setLanguage(input);
   const onType = (input) => setType(input);
@@ -30,7 +30,6 @@ const [currentPageStage, setCurrentPageStage] = useState(0)
   const onFailMsg = (input) => setFailMsg(input);
 
   const onSubmitHandler = () => {
-
     if (!QuizValidator(language, type, name, passGrade, header, questionsId, successMsg, failMsg)) return;
 
     const quiz = {
@@ -46,25 +45,20 @@ const [currentPageStage, setCurrentPageStage] = useState(0)
       date: Date.now(),
     };
 
-    AddQuiz(quiz);
+    if (!AddQuiz(quiz)) Alerter('somthing went worng... cant all quiz');
   };
 
-  const onQuestion = (isSelected, obj) => {
-
-    setQuestionsId((preState) => {
-      isSelected ? preState.push(obj._id) : preState.filter((a) => a != obj._id);
-
-      return preState;
-    });
-  };
+  const onQuestionsId = (questions) => setQuestionsId(questions);
 
   const generalDetailsInputs = [language, onLanguage, type, onType, name, onName, passGrade, onPassGrade, isShowResult, onIsShowResult];
   const messagesDetailsInputs = [header, onHeader, failMsg, onFailMsg, successMsg, onSuccessMsg];
   const pageStages = [
     { header: "General Quiz's Details", page: <GeneralDetails inputs={generalDetailsInputs} /> },
     { header: "Quiz's Messages", page: <MessagesDetails inputs={messagesDetailsInputs} /> },
-    { header: "Quiz's Questions", page: <QustionsChoosing onQuestionSelect={onQuestion} /> },
+    { header: "Quiz's Questions", page: <QustionsChoosing onQuestionsId={onQuestionsId} /> },
   ];
+
+  const [currentPageStage, setCurrentPageStage] = useState(0);
 
   const nextPageStage = () => {
     if (currentPageStage + 1 < pageStages.length) {
@@ -83,8 +77,8 @@ const [currentPageStage, setCurrentPageStage] = useState(0)
 
   return (
     <div className="create_quiz">
-      <CreateQuizBody header={pageStages[currentPageStage].header} page={pageStages[currentPageStage].page} />
-      <CreateQuizFotter
+      <CreateBody header={pageStages[currentPageStage].header} page={pageStages[currentPageStage].page} />
+      <NextFowordFotter
         onNext={nextPageStage}
         onPrevios={previosPageStage}
         onSubmit={onSubmitHandler}

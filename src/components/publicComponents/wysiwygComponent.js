@@ -3,7 +3,7 @@ import { Editor } from 'react-draft-wysiwyg';
 
 const WysiwygComponent = (props) => {
   const [input, setInput] = useState('component__wysiwyg__input green');
-  const isRequired = props.isRequired ? props.isRequired : true;
+  const isRequired = props.isRequired !== undefined ? props.isRequired : true;
 
   const onEditorStateChange = (event) => {
     props.setValue(event.getCurrentContent().getPlainText());

@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table';
 import Pagination from '../../publicComponents/table/Pagination';
 import Columns from './QuizesColumns';
+import Searchbar from 'components/publicComponents/table/Searchbar';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
@@ -13,6 +14,8 @@ const QuizesTable = (props) => {
     getTableBodyProps,
     headerGroups,
     prepareRow,
+    state,
+    setGlobalFilter,
     page,
     pageOptions,
     gotoPage,
@@ -26,13 +29,17 @@ const QuizesTable = (props) => {
       data,
       initialState: { pageIndex: 0 },
     },
+    useGlobalFilter,
     useSortBy,
     usePagination
   );
 
+  const { globalFilter } = state;
+
   return (
     <div className="tablePage">
       <div className="page_header">Manage Quizes</div>
+      <Searchbar filter={globalFilter} setFilter={setGlobalFilter} />
       <div className="table__body">
         <table {...getTableProps()}>
           <thead>
@@ -53,7 +60,7 @@ const QuizesTable = (props) => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
-                    const id = row.cells[0].value;
+                    const id = row.original;
 
                     switch (index) {
                       case 0:

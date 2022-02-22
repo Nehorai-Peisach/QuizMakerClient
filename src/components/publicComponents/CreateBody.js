@@ -1,4 +1,4 @@
-const CreateQuizBody = (props) => {
+const CreateBody = (props) => {
   return (
     <div className="create_quiz__body">
       <div className="page_header">{props.header}</div>
@@ -7,4 +7,4 @@ const CreateQuizBody = (props) => {
   );
 };
 
-export default CreateQuizBody;
+export default CreateBody;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const DropdownComponent = (props) => {
   const [input, setInput] = useState('component__dropdown__dropdown green');
-  const isRequired = props.isRequired ? props.isRequired : true;
+  const isRequired = props.isRequired !== undefined ? props.isRequired : true;
 
   useEffect(() => {
     !isRequired

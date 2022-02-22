@@ -1,0 +1,15 @@
+.td {
+  &__minimum {
+    width: 0;
+  }
+
+  &__id {
+    width: 1rem;
+  }
+  &__date {
+    width: 12rem;
+  }
+  &__type {
+    width: 10rem;
+  }
+}
