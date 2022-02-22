@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table';
 import Pagination from 'components/publicComponents/table/Pagination';
 import Columns from './ChoosingColumns';
+import GlobalFilter from 'components/publicComponents/table/GlobalFilter';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
@@ -13,6 +14,8 @@ const QuizesTable = (props) => {
     getTableBodyProps,
     headerGroups,
     prepareRow,
+    state,
+    setGlobalFilter,
     page,
     pageOptions,
     gotoPage,
@@ -26,12 +29,16 @@ const QuizesTable = (props) => {
       data,
       initialState: { pageIndex: 0 },
     },
+    useGlobalFilter,
     useSortBy,
     usePagination
   );
 
+  const { globalFilter } = state;
+
   return (
     <div>
+      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <div className="table__body">
         <table {...getTableProps()}>
           <thead>
