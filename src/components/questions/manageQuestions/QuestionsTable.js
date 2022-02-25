@@ -60,7 +60,7 @@ const QuizesTable = (props) => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
-                    const id = row.original
+                    const obj = row.original
 
                     switch (index) {
                       case 0:
@@ -84,10 +84,10 @@ const QuizesTable = (props) => {
                       case 4:
                         return (
                           <td {...cell.getCellProps()}>
-                            <button onClick={() => showClickHandler(id)}>show</button>
-                            <button onClick={() => editClickHandler(id)}>edit</button>
-                            <button onClick={() => duplicateClickHandler(id)}>duplicate</button>
-                            <button onClick={() => deleteClickHandler(id)}>delete</button>
+                            <button onClick={() => showClickHandler(obj)}>show</button>
+                            <button onClick={() => editClickHandler(obj)}>edit</button>
+                            <button onClick={() => duplicateClickHandler(obj)}>duplicate</button>
+                            <button onClick={() => deleteClickHandler(obj)}>delete</button>
                           </td>
                         );
                       default:

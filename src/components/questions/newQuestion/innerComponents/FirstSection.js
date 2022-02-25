@@ -7,8 +7,8 @@ const FirstSection = (props) => {
   const types = ['single', 'multi'];
 
   return (
-    <div className="create_question__body__page">
-      <div className="create_question__body__page__field font__big bold">Quiz Topic: Development</div>
+    <div className="create__body__page">
+      <div className="create__body__page__field font__big bold">Quiz Topic: Development</div>
       <DropdownComponent value={type} setValue={setType} items={types}>
         Question Type:
       </DropdownComponent>
@@ -24,7 +24,7 @@ const FirstSection = (props) => {
       <WysiwygComponent value={lowerText} setValue={setLowerText} isRequired={false}>
         Text Below :
       </WysiwygComponent> */}
-      <InputComponent value={tags} setValue={setTags} placeholder="Every tag start with #" isRequired={false}>
+      <InputComponent value={tags} setValue={setTags} placeholder="Seperate the tags with ," isRequired={false}>
         Tags:
       </InputComponent>
     </div>

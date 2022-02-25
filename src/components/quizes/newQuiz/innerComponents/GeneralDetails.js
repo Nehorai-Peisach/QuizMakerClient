@@ -8,8 +8,8 @@ const GeneralDetails = (props) => {
   const Languages = ['English', 'Hebrew'];
   const types = ['random-orderd', 'pre-orderd'];
   return (
-    <div className="create_quiz__body__page">
-      <div className="create_quiz__body__page__field font__big bold">Quiz Topic: Development</div>
+    <div className="create__body__page">
+      <div className="create__body__page__field font__big bold">Quiz Topic: Development</div>
       <DropdownComponent value={language} setValue={setLanguagee} items={Languages}>
         Quiz Language:
       </DropdownComponent>

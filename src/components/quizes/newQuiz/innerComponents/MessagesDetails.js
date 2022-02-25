@@ -5,7 +5,7 @@ const MessagesDetails = (props) => {
   const [header, setHeader, failMsg, setFailMsg, successMsg, setSuccessMsg] = props.inputs;
 
   return (
-    <div className="create_quiz__body__page">
+    <div className="create__body__page">
       <div className="messages_edtails">
         <InputComponent value={header} setValue={setHeader}>
           Header :
