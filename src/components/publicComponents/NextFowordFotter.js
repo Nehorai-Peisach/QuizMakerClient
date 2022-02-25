@@ -24,15 +24,11 @@ const NextFowordFotter = (props) => {
             Previos
           </div>
         )
-      : setPrevios(
-          <div className="btn unclickable">
-            Previos
-          </div>
-        );
+      : setPrevios(<div className="btn unclickable">Previos</div>);
   }, [props.currentStage]);
 
   return (
-    <div className='center'>
+    <div className="center">
       <>{previos}</>
       <>{next}</>
     </div>

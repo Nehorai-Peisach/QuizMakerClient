@@ -1,9 +1,9 @@
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react';
-import NewTest from 'components/quizes/newQuiz/NewQuiz';
+import NewQuiz from 'components/quizes/newQuiz/NewQuiz';
 import Home from 'components/home/Home';
 import ManageQuizes from 'components/quizes/manageQuizes/ManageQuizes';
 import ManageQuestions from 'components/questions/manageQuestions/ManageQestions';
-import EditQuestion from 'components/questions/newQuestion/NewQuestion';
+import NewQuestion from 'components/questions/newQuestion/NewQuestion';
 import ReportByStudent from 'components/reports/reportByStudent/ReportByStudent';
 import ReportByQuiz from 'components/reports/reportByQuiz/ReportByQuiz';
 import Loading from 'components/publicComponents/Loading';
@@ -19,28 +19,28 @@ const Navigator = forwardRef((props, ref) => {
   const changeComponent = (newComp) => {
     switch (newComp) {
       case 'Home':
-        setChoosenComponent(<Home />);
+        setChoosenComponent(<Home changeComponent={setChoosenComponent} />);
         break;
       case 'Manage Quizes':
-        setChoosenComponent(<ManageQuizes />);
+        setChoosenComponent(<ManageQuizes changeComponent={setChoosenComponent} />);
         break;
       case 'Create Quiz':
-        setChoosenComponent(<NewTest />);
+        setChoosenComponent(<NewQuiz changeComponent={setChoosenComponent} />);
         break;
       case 'Manage Questions':
-        setChoosenComponent(<ManageQuestions />);
+        setChoosenComponent(<ManageQuestions changeComponent={setChoosenComponent} />);
         break;
       case 'Create Question':
-        setChoosenComponent(<EditQuestion />);
+        setChoosenComponent(<NewQuestion changeComponent={setChoosenComponent} />);
         break;
       case 'Report By Quiz':
-        setChoosenComponent(<ReportByQuiz />);
+        setChoosenComponent(<ReportByQuiz changeComponent={setChoosenComponent} />);
         break;
       case 'Report By Student':
-        setChoosenComponent(<ReportByStudent />);
+        setChoosenComponent(<ReportByStudent changeComponent={setChoosenComponent} />);
         break;
       default:
-        setChoosenComponent(<Home />);
+        setChoosenComponent(<Home changeComponent={setChoosenComponent} />);
         break;
     }
   };

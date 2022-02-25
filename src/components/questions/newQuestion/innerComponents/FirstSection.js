@@ -12,12 +12,18 @@ const FirstSection = (props) => {
       <DropdownComponent value={type} setValue={setType} items={types}>
         Question Type:
       </DropdownComponent>
-      <WysiwygComponent value={text} setValue={setText}>
+      <InputComponent value={text} setValue={setText}>
+        Qustion Text :
+      </InputComponent>
+      <InputComponent value={lowerText} setValue={setLowerText} isRequired={false}>
+        Text Below :
+      </InputComponent>
+      {/* <WysiwygComponent value={text} setValue={setText}>
         Qustion Text :
       </WysiwygComponent>
       <WysiwygComponent value={lowerText} setValue={setLowerText} isRequired={false}>
         Text Below :
-      </WysiwygComponent>
+      </WysiwygComponent> */}
       <InputComponent value={tags} setValue={setTags} placeholder="Every tag start with #" isRequired={false}>
         Tags:
       </InputComponent>

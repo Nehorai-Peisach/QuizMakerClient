@@ -10,12 +10,18 @@ const MessagesDetails = (props) => {
         <InputComponent value={header} setValue={setHeader}>
           Header :
         </InputComponent>
-        <WysiwygComponent value={failMsg} setValue={setFailMsg}>
+        <InputComponent value={failMsg} setValue={setFailMsg}>
+          Fail Message :
+        </InputComponent>
+        <InputComponent value={successMsg} setValue={setSuccessMsg}>
+          Success Message :
+        </InputComponent>
+        {/* <WysiwygComponent value={failMsg} setValue={setFailMsg}>
           Fail Message :
         </WysiwygComponent>
         <WysiwygComponent value={successMsg} setValue={setSuccessMsg}>
           Success Message :
-        </WysiwygComponent>
+        </WysiwygComponent> */}
       </div>
     </div>
   );
