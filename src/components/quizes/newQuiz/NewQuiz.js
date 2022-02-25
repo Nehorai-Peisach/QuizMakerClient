@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import QuizValidator from './innerComponents/QuizValidator';
 import { AddQuiz } from 'components/helpers/QuizesRepo';
 import CreateBody from '../../publicComponents/CreateBody';
@@ -7,8 +7,7 @@ import MessagesDetails from './innerComponents/MessagesDetails';
 import QustionsChoosing from './innerComponents/QustionsChoosing';
 import Alerter from 'components/helpers/Alerter';
 import NextFowordFotter from '../../publicComponents/NextFowordFotter';
-import ManageQuizes from '../manageQuizes/ManageQuizes';
-import FinalPage from './innerComponents/FinalPage';
+import QuizSummary from './innerComponents/QuizSummary';
 import Home from 'components/home/Home';
 
 const NewQuiz = (props) => {
@@ -51,7 +50,7 @@ const NewQuiz = (props) => {
     };
     if (id != undefined) quiz._id = id;
     (await AddQuiz(quiz))
-      ? props.changeComponent(<ManageQuizes changeComponent={props.changeComponent} />)
+      ? props.changeComponent(<Home changeComponent={props.changeComponent} />)
       : Alerter('somthing went worng... cant all quiz');
   };
 
@@ -63,7 +62,7 @@ const NewQuiz = (props) => {
     { header: "General Quiz's Details", page: <GeneralDetails inputs={generalDetailsInputs} /> },
     { header: "Quiz's Messages", page: <MessagesDetails inputs={messagesDetailsInputs} /> },
     { header: "Quiz's Questions", page: <QustionsChoosing inputs={qustionsChoosingInputs} /> },
-    { header: "Quiz's Summary", page: <FinalPage inputs={finalPageInputs} /> },
+    { header: "Quiz's Summary", page: <QuizSummary inputs={finalPageInputs} /> },
   ];
 
   const [currentPageStage, setCurrentPageStage] = useState(0);
@@ -84,7 +83,7 @@ const NewQuiz = (props) => {
   };
 
   return (
-    <div className="create_quiz">
+    <div className="create">
       <CreateBody header={pageStages[currentPageStage].header} page={pageStages[currentPageStage].page} />
       <NextFowordFotter
         onNext={nextPageStage}

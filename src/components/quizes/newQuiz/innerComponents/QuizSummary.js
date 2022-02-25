@@ -1,4 +1,4 @@
-const FinalPage = (props) => {
+const QuizSummary = (props) => {
   const [language, type, name, passGrade, header, successMsg, failMsg, questionsId, isShowResult] = props.inputs;
   return (
     <div className="final_page">
@@ -15,4 +15,4 @@ const FinalPage = (props) => {
   );
 };
 
-export default FinalPage;
+export default QuizSummary;

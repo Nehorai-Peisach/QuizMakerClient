@@ -25,12 +25,12 @@ const ManageQuestions = (props) => {
     props.changeComponent(
       <NewQuestion
         changeComponent={props.changeComponent}
-        id={props._id}
+        id={obj._id}
         type={obj.type}
         text={obj.text}
         lowerText={obj.lower_text}
         answers={obj.answers}
-        tags={'#' + obj.tags.join('#')}
+        tags={obj.tags.join(',')}
       />
     );
   };
@@ -42,7 +42,7 @@ const ManageQuestions = (props) => {
         text={obj.text}
         lowerText={obj.lower_text}
         answers={obj.answers}
-        tags={'#' + obj.tags.join('#')}
+        tags={obj.tags.join(',')}
       />
     );
   };

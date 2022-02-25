@@ -7,29 +7,27 @@ import CreateBody from 'components/publicComponents/CreateBody';
 import NextFowordFotter from 'components/publicComponents/NextFowordFotter';
 import FirstSection from './innerComponents/FirstSection';
 import Home from 'components/home/Home';
+import QuestionSummary from './innerComponents/QuestionSummary';
 
 const NewQuestion = (props) => {
   const id = props.id;
-  const [type, setType] = useState(props.type);
-  const [text, setText] = useState(props.text);
-  const [lowerText, setLowerText] = useState(props.lowerText);
+  const [type, setType] = useState(props.type || 'single');
+  const [text, setText] = useState(props.text || '');
+  const [lowerText, setLowerText] = useState(props.lowerText || '');
   const [answers, setAnswers] = useState(props.answers || []);
-  const [tags, setTags] = useState(props.tags);
-
+  const [tags, setTags] = useState(props.tags || '');
   const onType = (type) => setType(type);
   const onText = (text) => setText(text);
   const onLowerText = (text) => setLowerText(text);
   const addAnswer = (answers) => setAnswers((pre) => [...pre, answers]);
   const deleteAnswer = (id) => {
-    debugger;
     setAnswers((pre) => pre.filter((x) => x.id !== id));
   };
   const onTags = (tags) => setTags(tags);
 
   const onSubmitHandler = () => {
-    if (!QuestionValidator(type, text, answers)) return;
-
-    let tmp = tags.split('#').trim().toLowerCase();
+    if (!QuestionValidator(text, answers)) return;
+    let tmp = tags.trim().toLowerCase().split(',');
     const question = {
       type: type,
       text: text,
@@ -38,14 +36,18 @@ const NewQuestion = (props) => {
       tags: tmp,
     };
     if (id != undefined) question._id = id;
-    !AddQuestion(question) ? Alerter('somthing went worng... cant all question') : props.changeComponent(<Home />);
+    !AddQuestion(question)
+      ? Alerter('somthing went worng... cant all question')
+      : props.changeComponent(<Home changeComponent={props.changeComponent} />);
   };
 
   const firstInputs = [type, onType, text, onText, lowerText, onLowerText, tags, onTags];
-  const answerInputs = [answers, addAnswer, deleteAnswer];
+  const answerInputs = [answers, addAnswer, deleteAnswer, type];
+  const summaryInputs = [type, text, lowerText, answers, tags];
   const pageStages = [
     { header: "General Question's Details", page: <FirstSection inputs={firstInputs} /> },
     { header: "Question's Answers", page: <AnswerSection inputs={answerInputs} /> },
+    { header: "Question's Summary", page: <QuestionSummary inputs={summaryInputs} /> },
   ];
 
   const [currentPageStage, setCurrentPageStage] = useState(0);
@@ -66,7 +68,7 @@ const NewQuestion = (props) => {
   };
 
   return (
-    <div className="create_question">
+    <div className="create">
       <CreateBody header={pageStages[currentPageStage].header} page={pageStages[currentPageStage].page} />
       <NextFowordFotter
         onNext={nextPageStage}

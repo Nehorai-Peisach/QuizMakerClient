@@ -1,0 +1,14 @@
+.answers {
+  display: flex;
+  justify-content: start;
+  > * {
+    margin: 0 1rem;
+  }
+
+  &__btns {
+    > * {
+      padding: 1rem;
+      margin: 1rem;
+    }
+  }
+}
