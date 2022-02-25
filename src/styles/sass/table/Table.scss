@@ -29,13 +29,13 @@
       }
       tr:hover {
         background-color: #ddd;
-        cursor: pointer;
+        cursor: pointer !important;
       }
       th {
         text-align: left;
         background-color: #04aa6d;
         color: white;
-        border-color: #008152;
+        border-color: black;
         user-select: none;
       }
     }
@@ -47,7 +47,11 @@
         background-color: #008152 !important;
       }
       &:hover {
-        background-color: #00422a !important;
+        background-color: #076d48 !important;
+      }
+
+      > td {
+        border-color: black !important;
       }
     }
 
@@ -77,7 +81,6 @@
 
         &:hover {
           background-color: #008152;
-          cursor: pointer;
         }
         &.left {
           border-radius: 50% 0.5rem 0.5rem 50%;

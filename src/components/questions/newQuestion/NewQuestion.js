@@ -6,36 +6,43 @@ import Alerter from 'components/helpers/Alerter';
 import CreateBody from 'components/publicComponents/CreateBody';
 import NextFowordFotter from 'components/publicComponents/NextFowordFotter';
 import FirstSection from './innerComponents/FirstSection';
+import Home from 'components/home/Home';
 
 const NewQuestion = (props) => {
-  const [type, setType] = useState();
-  const [text, setText] = useState();
-  const [lowerText, setLowerText] = useState();
-  const [answers, setAnswers] = useState([]);
-  const [tags, setTags] = useState([]);
+  const id = props.id;
+  const [type, setType] = useState(props.type);
+  const [text, setText] = useState(props.text);
+  const [lowerText, setLowerText] = useState(props.lowerText);
+  const [answers, setAnswers] = useState(props.answers || []);
+  const [tags, setTags] = useState(props.tags);
 
   const onType = (type) => setType(type);
   const onText = (text) => setText(text);
   const onLowerText = (text) => setLowerText(text);
-  const onAnswers = (answers) => setAnswers(answers);
-  const onTags = (tags) => {
-    let tmp = tags.split(',');
-    setTags([...tmp]);
+  const addAnswer = (answers) => setAnswers((pre) => [...pre, answers]);
+  const deleteAnswer = (id) => {
+    debugger;
+    setAnswers((pre) => pre.filter((x) => x.id !== id));
   };
+  const onTags = (tags) => setTags(tags);
 
   const onSubmitHandler = () => {
     if (!QuestionValidator(type, text, answers)) return;
 
+    let tmp = tags.split('#').trim().toLowerCase();
     const question = {
       type: type,
       text: text,
+      lower_text: lowerText,
       answers: answers,
+      tags: tmp,
     };
-    if (!AddQuestion(question)) Alerter('somthing went worng... cant all question');
+    if (id != undefined) question._id = id;
+    !AddQuestion(question) ? Alerter('somthing went worng... cant all question') : props.changeComponent(<Home />);
   };
 
   const firstInputs = [type, onType, text, onText, lowerText, onLowerText, tags, onTags];
-  const answerInputs = [answers, onAnswers];
+  const answerInputs = [answers, addAnswer, deleteAnswer];
   const pageStages = [
     { header: "General Question's Details", page: <FirstSection inputs={firstInputs} /> },
     { header: "Question's Answers", page: <AnswerSection inputs={answerInputs} /> },

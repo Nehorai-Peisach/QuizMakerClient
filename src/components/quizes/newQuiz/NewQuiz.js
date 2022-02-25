@@ -7,17 +7,21 @@ import MessagesDetails from './innerComponents/MessagesDetails';
 import QustionsChoosing from './innerComponents/QustionsChoosing';
 import Alerter from 'components/helpers/Alerter';
 import NextFowordFotter from '../../publicComponents/NextFowordFotter';
+import ManageQuizes from '../manageQuizes/ManageQuizes';
+import FinalPage from './innerComponents/FinalPage';
+import Home from 'components/home/Home';
 
 const NewQuiz = (props) => {
-  const [language, setLanguage] = useState();
-  const [type, setType] = useState();
-  const [name, setName] = useState();
-  const [passGrade, setPassGrade] = useState();
-  const [isShowResult, setIsShowResult] = useState(false);
-  const [header, setHeader] = useState();
-  const [successMsg, setSuccessMsg] = useState();
-  const [failMsg, setFailMsg] = useState();
-  const [questionsId, setQuestionsId] = useState([]);
+  const id = props.id;
+  const [language, setLanguage] = useState(props.language);
+  const [type, setType] = useState(props.type);
+  const [name, setName] = useState(props.name);
+  const [passGrade, setPassGrade] = useState(props.passGrade);
+  const [isShowResult, setIsShowResult] = useState(props.isShowResult || false);
+  const [header, setHeader] = useState(props.header);
+  const [successMsg, setSuccessMsg] = useState(props.successMsg);
+  const [failMsg, setFailMsg] = useState(props.failMsg);
+  const [questionsId, setQuestionsId] = useState(props.questionsId || []);
 
   const onLanguage = (input) => setLanguage(input);
   const onType = (input) => setType(input);
@@ -26,12 +30,13 @@ const NewQuiz = (props) => {
   const onIsShowResult = (input) => setIsShowResult(input);
 
   const onHeader = (input) => setHeader(input);
+  const addQuestionId = (id) => setQuestionsId((pre) => [...pre, id]);
+  const removeQuestionId = (id) => setQuestionsId((pre) => pre.filter((x) => x != id));
   const onSuccessMsg = (input) => setSuccessMsg(input);
   const onFailMsg = (input) => setFailMsg(input);
 
-  const onSubmitHandler = () => {
-    if (!QuizValidator(language, type, name, passGrade, header, questionsId, successMsg, failMsg)) return;
-
+  const onSubmitClick = async () => {
+    if (!QuizValidator(language, type, name, passGrade, header, successMsg, failMsg, questionsId)) return;
     const quiz = {
       language: language,
       type: type,
@@ -44,18 +49,21 @@ const NewQuiz = (props) => {
       fail_msg: failMsg,
       date: Date.now(),
     };
-
-    if (!AddQuiz(quiz)) Alerter('somthing went worng... cant all quiz');
+    if (id != undefined) quiz._id = id;
+    (await AddQuiz(quiz))
+      ? props.changeComponent(<ManageQuizes changeComponent={props.changeComponent} />)
+      : Alerter('somthing went worng... cant all quiz');
   };
-
-  const onQuestionsId = (questions) => setQuestionsId(questions);
 
   const generalDetailsInputs = [language, onLanguage, type, onType, name, onName, passGrade, onPassGrade, isShowResult, onIsShowResult];
   const messagesDetailsInputs = [header, onHeader, failMsg, onFailMsg, successMsg, onSuccessMsg];
+  const qustionsChoosingInputs = [questionsId, addQuestionId, removeQuestionId];
+  const finalPageInputs = [language, type, name, passGrade, header, successMsg, failMsg, questionsId, isShowResult];
   const pageStages = [
     { header: "General Quiz's Details", page: <GeneralDetails inputs={generalDetailsInputs} /> },
     { header: "Quiz's Messages", page: <MessagesDetails inputs={messagesDetailsInputs} /> },
-    { header: "Quiz's Questions", page: <QustionsChoosing onQuestionsId={onQuestionsId} /> },
+    { header: "Quiz's Questions", page: <QustionsChoosing inputs={qustionsChoosingInputs} /> },
+    { header: "Quiz's Summary", page: <FinalPage inputs={finalPageInputs} /> },
   ];
 
   const [currentPageStage, setCurrentPageStage] = useState(0);
@@ -81,7 +89,7 @@ const NewQuiz = (props) => {
       <NextFowordFotter
         onNext={nextPageStage}
         onPrevios={previosPageStage}
-        onSubmit={onSubmitHandler}
+        onSubmit={onSubmitClick}
         stagesNum={pageStages.length}
         currentStage={currentPageStage}
       />

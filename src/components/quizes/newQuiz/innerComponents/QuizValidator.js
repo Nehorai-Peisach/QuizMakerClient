@@ -1,9 +1,8 @@
 import Alerter from 'components/helpers/Alerter';
 
-const QuizValidator = (languege, type, name, passGrade, header, questionsId, successMsg, failMsg) => {
+const QuizValidator = (language, type, name, passGrade, header, successMsg, failMsg, questionsId) => {
   let isAll = false;
-
-  languege
+  language
     ? type
       ? name && name.length > 0
         ? passGrade && passGrade > 0

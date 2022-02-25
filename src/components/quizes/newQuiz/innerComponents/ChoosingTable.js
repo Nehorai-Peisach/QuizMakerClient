@@ -3,18 +3,16 @@ import { useTable, usePagination, useSortBy, useGlobalFilter, useRowSelect } fro
 import Pagination from 'components/publicComponents/table/Pagination';
 import Columns from './ChoosingColumns';
 import Searchbar from 'components/publicComponents/table/Searchbar';
-import Checkbox from 'components/publicComponents/table/Checkbox';
 
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
   const columns = useMemo(() => Columns, []);
 
-  const {
+  let {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    selectedFlatRows,
     state,
     setGlobalFilter,
     page,
@@ -32,30 +30,10 @@ const QuizesTable = (props) => {
     },
     useGlobalFilter,
     useSortBy,
-    usePagination,
-    useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => {
-        return [
-          {
-            id: 'selection',
-            Header: ({ getToggleAllRowsSelectedProps }) => <Checkbox {...getToggleAllRowsSelectedProps()} />,
-            Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
-          },
-          ...columns,
-        ];
-      });
-    }
+    usePagination
   );
 
   const { globalFilter } = state;
-  useEffect(() => {
-    if (!selectedFlatRows) return;
-
-    const tmp = [];
-    selectedFlatRows.forEach((row) => tmp.push(row.original._id));
-    props.onQuestionsId(tmp);
-  }, [selectedFlatRows]);
 
   return (
     <div>
@@ -77,17 +55,26 @@ const QuizesTable = (props) => {
           <tbody {...getTableBodyProps()}>
             {page.map((row, i) => {
               prepareRow(row);
+              let trClass;
+              props.questionsId.forEach((q) => {
+                if (q === row.original._id) trClass = 'table__body__selected';
+              });
               return (
-                <tr {...row.getRowProps()}>
+                <tr className={trClass} {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
                     switch (index) {
                       case 0:
                         return (
-                          <td className="td__minimum" {...cell.getCellProps()}>
+                          <td
+                            {...cell.getCellProps()}
+                            onClick={() => {
+                              !trClass ? props.addQuestionId(row.original._id) : props.removeQuestionId(row.original._id);
+                            }}
+                          >
                             {cell.render('Cell')}
                           </td>
                         );
-                      case 2:
+                      case 1:
                         return (
                           <td className="td__minimum" {...cell.getCellProps()}>
                             <button onClick={() => props.showClickHandler(row.original)}>show</button>

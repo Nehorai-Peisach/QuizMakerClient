@@ -17,3 +17,13 @@ export const AddQuestion = async (question) => {
 
   return result;
 };
+
+export const DeleteQuestion = async (question) => {
+  let result;
+  await axios
+    .post('http://localhost:4000/api/questions/deleteQuestion', question)
+    .then(() => (result = true))
+    .catch(() => (result = false));
+
+  return result;
+};

@@ -7,7 +7,7 @@ import Searchbar from 'components/publicComponents/table/Searchbar';
 const QuizesTable = (props) => {
   const data = useMemo(() => props.data, []);
   const columns = useMemo(() => Columns, []);
-  const [linkClickHandler, showClickHandler, editClickHandler, duplicateClickHandler, deleteClickHandler] = props.btns;
+  const [linkClickHandler, editClickHandler, duplicateClickHandler,deleteClickHandler] = props.btns;
 
   const {
     getTableProps,
@@ -60,7 +60,7 @@ const QuizesTable = (props) => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
-                    const id = row.original;
+                    const obj = row.original;
 
                     switch (index) {
                       case 0:
@@ -68,14 +68,15 @@ const QuizesTable = (props) => {
                       case 1:
                         return (
                           <td {...cell.getCellProps()}>
-                            <button onClick={() => linkClickHandler(id)}>Copy</button>
+                            <button onClick={() => linkClickHandler(obj._id)}>Copy</button>
                           </td>
                         );
                       case 5:
                         return (
                           <td {...cell.getCellProps()}>
-                            <button onClick={() => editClickHandler(id)}>edit</button>
-                            <button onClick={() => duplicateClickHandler(id)}>duplicate</button>
+                            <button onClick={() => editClickHandler(obj)}>edit</button>
+                            <button onClick={() => duplicateClickHandler(obj)}>duplicate</button>
+                            <button onClick={() => deleteClickHandler(obj)}>delete</button>
                           </td>
                         );
                       default:
