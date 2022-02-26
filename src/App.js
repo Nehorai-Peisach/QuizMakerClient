@@ -2,7 +2,7 @@ import Main from 'components/main/main';
 import Navigator from 'components/main/Navigator/navigator';
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { Route, Routes  } from 'react-router-dom';
-import QuizToDo from "./components/test/test";
+import QuizToDo from "./components/test/StudentPage";
 
 const App = () => {
   // const questions = data.questions;
