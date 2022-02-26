@@ -303,19 +303,6 @@ a:visited {
   .ft .ft-title {
     padding: 1rem;
     color: royalblue; }
-  .ft .btn {
-    display: inline-flex;
-    margin: 0.5rem;
-    padding: 1rem;
-    width: 10rem;
-    background-color: var(--bg-color);
-    color: white;
-    border-radius: 0.5rem;
-    justify-content: center; }
-    .ft .btn:hover {
-      background-color: var(--first-color);
-      cursor: pointer;
-      user-select: none; }
 
 .loginQuiz {
   display: flex;
@@ -470,13 +457,6 @@ a:visited {
 .bot {
   justify-self: end; }
 
-.final_page {
-  padding: 5rem; }
-  .final_page > * {
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: bold; }
-
 .sweet-loading {
   width: 100%;
   height: 100%;
@@ -604,6 +584,13 @@ a:visited {
       margin-bottom: 1rem; }
   .create__fotter {
     align-self: center; }
+
+.final_page {
+  padding: 5rem; }
+  .final_page > * {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold; }
 
 .tablePage {
   width: 100%;

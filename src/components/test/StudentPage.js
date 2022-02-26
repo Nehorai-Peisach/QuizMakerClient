@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Login from "./login/login";
-import Question from "./quizGo/questionComp";
-import { GetQuiz } from "components/helpers/QuizesRepo";
-import { SubmitQuiz } from "components/helpers/QuizesRepo";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { GetQuiz } from 'components/helpers/QuizesRepo';
+import { SubmitQuiz } from 'components/helpers/QuizesRepo';
+import QuestionsComponent from './doQuiz/questionComp';
+import Login from './login/Login';
 
-const Test = (props) => {
+const StudentPage = (props) => {
   const { quizId } = useParams();
   const [isLoged, setIsLoged] = useState(false);
   const [student, setStudent] = useState({});
@@ -26,7 +26,7 @@ const Test = (props) => {
     let tmpCorrectAns = 0;
     answers.forEach((ans) => {
       let question = questions.find((q) => q._id === ans.question_id);
-      if (question.type === "single") {
+      if (question.type === 'single') {
         if (ans.answers.is_correct) {
           tmpCorrectAns += 1;
         }
@@ -84,11 +84,7 @@ const Test = (props) => {
   return (
     <div>
       {isLoged ? (
-        <Question
-          questions={quiz.questions}
-          onSubmitPressed={finishQuiz}
-          onStudentAnswersChange={onStudentAnswersChange}
-        />
+        <QuestionsComponent questions={quiz.questions} onSubmitPressed={finishQuiz} onStudentAnswersChange={onStudentAnswersChange} />
       ) : (
         <Login LogedIn={LogedIn} />
       )}
@@ -96,4 +92,4 @@ const Test = (props) => {
   );
 };
 
-export default Test;
+export default StudentPage;

@@ -39,12 +39,11 @@ const QuestionsComponent = (props) => {
         onAnswerSelect={onAnswerSelect}
       />
       <TestFotter
-        index={currentQuestionIndex}
-        questions={props.questions}
-        currentStage={currentQuestionIndex}
-        onPrevios={previosQuestion}
         onNext={nextQuestion}
+        onPrevios={previosQuestion}
         onSubmit={submitQuiz}
+        currentStage={currentQuestionIndex}
+        questions={props.questions}
       />
     </div>
   );
