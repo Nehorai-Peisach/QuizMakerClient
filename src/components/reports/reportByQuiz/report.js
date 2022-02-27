@@ -1,26 +1,20 @@
-import Searchbar from "components/publicComponents/table/Searchbar";
-import Columns from "components/questions/manageQuestions/QuestionsColumns";
-import React, { useEffect } from "react";
-import { useMemo } from "react";
-import {
-  useTable,
-  usePagination,
-  useSortBy,
-  useGlobalFilter,
-} from "react-table";
-import Pagination from "../../publicComponents/table/Pagination";
+import Searchbar from 'components/publicComponents/table/Searchbar';
+import Columns from './reportColumns';
+import { useMemo } from 'react';
+import { useTable, usePagination, useSortBy } from 'react-table';
+import Pagination from '../../publicComponents/table/Pagination';
+import ReportQuizSummary from './reportQuizSummary';
 
 const Report = (props) => {
-  const [data] = props.inputs;
+  const [startDate, endDate, quizesList, any] = props.inputs;
+  const data = useMemo(() => quizesList, []);
   const columns = useMemo(() => Columns, []);
-console.log(data);
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
     state,
-    setGlobalFilter,
     page,
     pageOptions,
     gotoPage,
@@ -34,17 +28,15 @@ console.log(data);
       data,
       initialState: { pageIndex: 0 },
     },
-    useGlobalFilter,
     useSortBy,
     usePagination
   );
 
-  const { globalFilter } = state;
+  const inputs = [data[0].quiz, data, startDate, endDate, any];
 
   return (
-    <div className="tablePage">
-      <div className="page_header">Manage Quizes</div>
-      <Searchbar filter={globalFilter} setFilter={setGlobalFilter} />
+    <div>
+      <ReportQuizSummary data={inputs} />
       <div className="table__body">
         <table {...getTableProps()}>
           <thead>
@@ -52,10 +44,8 @@ console.log(data);
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
                   <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                    {column.render("Header")}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "▼" : "▲") : ""}
-                    </span>
+                    {column.render('Header')}
+                    <span>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲') : ''}</span>
                   </th>
                 ))}
               </tr>
@@ -71,31 +61,13 @@ console.log(data);
 
                     switch (index) {
                       case 0:
-                        return <td {...cell.getCellProps()}>{i + 1}</td>;
-                      case 1:
                         return (
-                          <td {...cell.getCellProps()}>
-                            <button>
-                              {/* <button onClick={() => linkClickHandler(obj._id)}> */}
-                              Copy
-                            </button>
-                          </td>
-                        );
-                      case 5:
-                        return (
-                          <td {...cell.getCellProps()}>
-                            <button>
-                              {/* <button onClick={() => deleteClickHandler(obj)}> */}
-                              delete
-                            </button>
+                          <td className="td__minimum" {...cell.getCellProps()}>
+                            {i + 1}
                           </td>
                         );
                       default:
-                        return (
-                          <td {...cell.getCellProps()}>
-                            {cell.render("Cell")}
-                          </td>
-                        );
+                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
                     }
                   })}
                 </tr>

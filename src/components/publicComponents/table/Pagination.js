@@ -7,7 +7,7 @@ const Pagination = (props) => {
 
   useEffect(() => {
     setCurrentPage((pre) => {
-      props.pageIndex > 0 ? (pre = props.pageIndex) : (pre = 1);
+      pre = props.pageIndex + 1;
       return pre;
     });
   }, [props.pageIndex]);

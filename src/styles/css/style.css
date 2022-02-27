@@ -336,17 +336,6 @@ a:visited {
   .loginQuiz button:hover {
     background: #2e7d32; }
 
-.textBlock_main {
-  display: grid;
-  grid-template-columns: 1fr 4fr; }
-  .textBlock_main .textBlock_title {
-    grid-column-start: 1;
-    justify-self: end;
-    padding-right: 5%; }
-  .textBlock_main .textBlock_editor {
-    grid-column-start: 2;
-    min-height: 25vh; }
-
 .nav {
   height: 100%;
   display: flex;
@@ -563,7 +552,7 @@ a:visited {
   justify-content: center; }
   .searchbar__input {
     width: 60%;
-    margin-left: 1rem;
+    margin: 1rem;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem; }
@@ -600,8 +589,8 @@ a:visited {
   background-color: var(--page-bg-color); }
 
 .table__body {
-  max-height: 70.7vh;
-  padding: 1rem;
+  max-height: 66.9vh;
+  padding: 0 1rem;
   overflow: auto; }
   .table__body table {
     width: 100%;
@@ -644,7 +633,8 @@ a:visited {
   align-items: center; }
   .table__fotter .pagination {
     display: flex;
-    align-items: flex-end; }
+    align-items: flex-end;
+    padding-top: 1rem; }
     .table__fotter .pagination__btn {
       margin: 0 0.3rem;
       height: 2.5rem;
@@ -684,50 +674,22 @@ a:visited {
         outline: none;
         width: 5rem; }
 
-.reportQuizWrapper {
+.select_quiz {
+  user-select: none;
+  height: 80vh;
+  align-items: center; }
+  .select_quiz__wrapper {
+    height: fit-content;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: lightgray;
+    border-radius: 2rem; }
+
+.reports__quiz__summary {
   display: grid;
-  grid-template-columns: 15% 30% 30% 25%;
-  grid-template-rows: repeat(6, 10%);
-  margin: 5px;
-  width: 70vw;
-  height: 70vh;
-  justify-content: center;
-  background-color: lightgray; }
-  .reportQuizWrapper .reportQuiz__selectQuizLabel {
-    grid-column: 1;
-    grid-row: 1;
-    font-weight: bold; }
-  .reportQuizWrapper .reportQuiz__selectQuiz__select {
-    grid-row: 1;
-    grid-column: 2/4;
-    min-width: 100%; }
-  .reportQuizWrapper .reportQuiz__selectDateLabel {
-    grid-row: 3;
-    grid-column: 1;
-    font-weight: bold; }
-  .reportQuizWrapper .selectQuiz__fromDate {
-    display: flex;
-    grid-row: 3;
-    grid-column: 2; }
-  .reportQuizWrapper .selectQuiz__ToDate {
-    display: flex;
-    grid-row: 3;
-    grid-column: 3;
-    margin: 3px; }
-  .reportQuizWrapper h3 {
-    grid-row: 4;
-    grid-column: 2;
-    font-weight: bold; }
-  .reportQuizWrapper .selectQuiz__switch {
-    grid-column: 2;
-    grid-row: 5;
-    width: 100%; }
-  .reportQuizWrapper .reportQuiz_back_btn {
-    grid-column: 1;
-    grid-row: 6; }
-  .reportQuizWrapper .reportQuiz_Generate_btn {
-    grid-column: 4;
-    grid-row: 6; }
+  grid-template-columns: 1fr 1fr; }
 
 .react-datepicker__year-read-view--down-arrow,
 .react-datepicker__month-read-view--down-arrow,

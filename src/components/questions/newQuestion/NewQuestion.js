@@ -20,6 +20,7 @@ const NewQuestion = (props) => {
   const onText = (text) => setText(text);
   const onLowerText = (text) => setLowerText(text);
   const addAnswer = (answers) => setAnswers((pre) => [...pre, answers]);
+
   const deleteAnswer = (id) => {
     setAnswers((pre) => pre.filter((x) => x.id !== id));
   };
@@ -59,6 +60,7 @@ const NewQuestion = (props) => {
       });
     }
   };
+  
   const previosPageStage = () => {
     if (currentPageStage > 0) {
       setCurrentPageStage((prevState) => {

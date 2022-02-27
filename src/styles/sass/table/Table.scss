@@ -7,8 +7,8 @@
 
 .table {
   &__body {
-    max-height: 70.7vh;
-    padding: 1rem;
+    max-height: 66.9vh;
+    padding: 0 1rem;
     overflow: auto;
 
     table {
@@ -69,6 +69,7 @@
     .pagination {
       display: flex;
       align-items: flex-end;
+      padding-top: 1rem;
 
       &__btn {
         margin: 0 0.3rem;
