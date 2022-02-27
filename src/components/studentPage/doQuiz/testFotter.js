@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const TestFotter = (props) => {
   const [next, setNext] = useState();
   useEffect(() => {
-    props.currentStage !== props.questions.length - 1
+    props.currentStage !== props.stagesNum - 1
       ? setNext(
           <div className="btn" onClick={props.onNext}>
             Next
@@ -31,7 +31,7 @@ const TestFotter = (props) => {
     <div className="ft">
       <hr className="ft-hr" />
       <h4 className="ft-title">
-        You answered {props.currentStage + 1} out of {props.questions.length}
+        You answered {props.currentStage + 1} out of {props.stagesNum}
       </h4>
       <div className="ft-navigator">
         <>{previos}</>

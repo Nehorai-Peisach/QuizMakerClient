@@ -229,7 +229,7 @@ a:visited {
 
 .answers {
   display: flex;
-  justify-content: start; }
+  justify-content: flex-start; }
   .answers > * {
     margin: 0 1rem; }
   .answers__btns > * {

@@ -17,7 +17,7 @@ const Columns = [
     Header: 'Last Update',
     accessor: 'date',
     Cell: ({ value }) => {
-      return format(new Date(value), 'dd//MM//yy - HH:mm');
+      return format(new Date(value), 'dd/MM/yy - HH:mm');
     },
   },
   {
