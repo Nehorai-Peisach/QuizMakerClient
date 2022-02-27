@@ -1,0 +1,54 @@
+.reportQuizWrapper {
+  display: grid;
+  grid-template-columns: 15% 30% 30% 25%;
+  grid-template-rows: repeat(6, 10%);
+  margin: 5px;
+  width: 70vw;
+  height: 70vh;
+  justify-content: center;
+  background-color: lightgray;
+  .reportQuiz__selectQuizLabel {
+    grid-column: 1;
+    grid-row: 1;
+    font-weight: bold;
+  }
+  .reportQuiz__selectQuiz__select {
+    grid-row: 1;
+    grid-column: 2/4;
+    min-width: 100%;
+  }
+  .reportQuiz__selectDateLabel {
+    grid-row: 3;
+    grid-column: 1;
+    font-weight: bold;
+  }
+  .selectQuiz__fromDate {
+    display: flex;
+    grid-row: 3;
+    grid-column: 2;
+  }
+  .selectQuiz__ToDate {
+    display: flex;
+    grid-row: 3;
+    grid-column: 3;
+    margin: 3px;
+  }
+  h3 {
+    grid-row: 4;
+    grid-column: 2;
+    font-weight: bold;
+  }
+  .selectQuiz__switch {
+    grid-column: 2;
+    grid-row: 5;
+    width: 100%;
+  }
+  .reportQuiz_back_btn {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .reportQuiz_Generate_btn {
+    grid-column: 4;
+    grid-row: 6;
+  }
+}
