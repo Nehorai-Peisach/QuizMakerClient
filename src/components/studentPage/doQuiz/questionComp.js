@@ -1,7 +1,7 @@
-import TestHeader from './testHeader';
-import TestBody from './testBody';
-import TestFotter from './testFotter';
-import { useEffect, useState } from 'react';
+import TestHeader from "./testHeader";
+import TestBody from "./testBody";
+import TestFotter from "./testFotter";
+import { useEffect, useState } from "react";
 
 const QuestionsComponent = (props) => {
   const [currentStage, setCurrentStage] = useState(0);
@@ -28,7 +28,8 @@ const QuestionsComponent = (props) => {
     props.quiz.questions[currentStage].answers.forEach((x, i) => {
       studentAnswer.answers.forEach((answer) => {
         setStudentAnswers((pre) => {
-          pre[currentStage].forEach((x) => (x = false));
+          pre[currentStage].forEach((a) => (a = false));
+          setCurrentAnswer(pre[currentStage]);
           return pre;
         });
         if (x._id === answer._id) {
@@ -74,7 +75,11 @@ const QuestionsComponent = (props) => {
   return (
     <div>
       <TestHeader header={props.quiz.header} />
-      <TestBody question={props.quiz.questions[currentStage]} answers={currentAnswer} onAnswer={onAnswer} />
+      <TestBody
+        question={props.quiz.questions[currentStage]}
+        answers={currentAnswer}
+        onAnswer={onAnswer}
+      />
       <TestFotter
         onNext={nextQuestion}
         onPrevios={previosQuestion}

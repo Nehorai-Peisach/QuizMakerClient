@@ -1,4 +1,9 @@
+import { useEffect, useState } from "react";
+
 const MultiAnswer = (props) => {
+  
+
+
   const onAnswerSelect = (index) => {
     let tmpList = props.studentAnswers;
     tmpList[index] = !tmpList[index];
