@@ -42,13 +42,3 @@ export const DeleteQuiz = async (quiz) => {
 
   return result;
 };
-
-export const SubmitQuiz = async (quiz) => {
-  let result;
-  await axios
-    .post('http://localhost:4000/api/completedQuizes/addCompletedQuiz', quiz)
-    .then(() => (result = true))
-    .catch(() => (result = false));
-
-  return result;
-};

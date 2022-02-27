@@ -1,3 +1,4 @@
+import { AddStudent } from 'components/helpers/StudentsRepo';
 import React, { useState } from 'react';
 import LoginValidator from './LoginValidator';
 
@@ -6,17 +7,17 @@ const Login = (props) => {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
-  const login = () => {
+  const login = async () => {
     if (!LoginValidator(firstName, lastName, email)) return;
 
-    let student = {
+    let tmpStudent = {
       first_name: firstName,
       last_name: lastName,
       email: email,
     };
-    // axios.post("http://localhost:4000/api/students/addstudent", tmp);
 
-    props.LogedIn(student);
+    const student = await AddStudent(tmpStudent);
+    props.LogedIn(student.data);
   };
   return (
     <div className="loginQuiz">

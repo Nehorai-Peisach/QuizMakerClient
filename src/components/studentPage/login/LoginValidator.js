@@ -6,7 +6,7 @@ const loginValidator = (firstName, lastName, email) => {
 
   firstName && firstName.length > 2
     ? lastName && lastName.length > 2
-      ? email && email.match(mailFormat)
+      ? email && mailFormat.test(email)
         ? (isAll = true)
         : Alerter('You have entered an invalid email address!')
       : Alerter('You have entered an invalid firstname! (more than 2 letters)')
