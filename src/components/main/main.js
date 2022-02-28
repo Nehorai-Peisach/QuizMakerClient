@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NavBar from './navbar/NavBar';
+import Login from './Login';
 
 const Main = (props) => {
   const [isActive, setIsActive] = useState(false);
@@ -20,8 +21,14 @@ const Main = (props) => {
 
   return (
     <div>
-      <NavBar className={navClass} navHandler={navHandler} navigate={navigate} isActive={isActive} />
-      <div className={CompClass}>{props.children}</div>
+      {props.user ? (
+        <div>
+          <NavBar className={navClass} navHandler={navHandler} navigate={navigate} isActive={isActive} />
+          <div className={CompClass}>{props.children}</div>
+        </div>
+      ) : (
+        <Login LogedIn={props.setUser} />
+      )}
     </div>
   );
 };

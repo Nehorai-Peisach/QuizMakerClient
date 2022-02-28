@@ -1,5 +1,9 @@
 const Home = (props) => {
-  return <h1>Home</h1>;
+  return (
+    <div className="center">
+      <h1>Welcome {props.user.username}</h1>;
+    </div>
+  );
 };
 
 export default Home;
