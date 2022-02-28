@@ -9,7 +9,7 @@ import ReportByQuiz from 'components/reports/reportByQuiz/main';
 import Loading from 'components/publicComponents/Loading';
 
 const Navigator = forwardRef((props, ref) => {
-  const [choosenComponent, setChoosenComponent] = useState(<Home />);
+  const [choosenComponent, setChoosenComponent] = useState(<Home user={props.user} />);
 
   useImperativeHandle(ref, () => ({
     move(newComp) {
@@ -18,29 +18,26 @@ const Navigator = forwardRef((props, ref) => {
   }));
   const changeComponent = (newComp) => {
     switch (newComp) {
-      case 'Home':
-        setChoosenComponent(<Home changeComponent={setChoosenComponent} />);
-        break;
       case 'Manage Quizes':
-        setChoosenComponent(<ManageQuizes changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<ManageQuizes changeComponent={setChoosenComponent} user={props.user} />);
         break;
       case 'Create Quiz':
-        setChoosenComponent(<NewQuiz changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<NewQuiz changeComponent={setChoosenComponent} user={props.user} />);
         break;
       case 'Manage Questions':
-        setChoosenComponent(<ManageQuestions changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<ManageQuestions changeComponent={setChoosenComponent} user={props.user} />);
         break;
       case 'Create Question':
-        setChoosenComponent(<NewQuestion changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<NewQuestion changeComponent={setChoosenComponent} user={props.user} />);
         break;
       case 'Report By Quiz':
-        setChoosenComponent(<ReportByQuiz changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<ReportByQuiz changeComponent={setChoosenComponent} user={props.user} />);
         break;
       case 'Report By Student':
-        setChoosenComponent(<ReportByStudent changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<ReportByStudent changeComponent={setChoosenComponent} user={props.user} />);
         break;
       default:
-        setChoosenComponent(<Home changeComponent={setChoosenComponent} />);
+        setChoosenComponent(<Home changeComponent={setChoosenComponent} user={props.user} />);
         break;
     }
   };
