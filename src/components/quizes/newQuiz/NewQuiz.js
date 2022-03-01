@@ -44,7 +44,7 @@ const NewQuiz = (props) => {
       is_show_result: isShowResult,
       header: header,
       questions_id: questionsId,
-      success_mgs: successMsg,
+      success_msg: successMsg,
       fail_msg: failMsg,
       date: Date.now(),
     };
