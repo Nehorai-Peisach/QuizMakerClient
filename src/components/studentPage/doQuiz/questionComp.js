@@ -55,7 +55,7 @@ const QuestionsComponent = (props) => {
   };
 
   return (
-    <div>
+    <div className="student_page">
       <TestHeader header={props.quiz.header} />
       <TestBody question={props.quiz.questions[currentStage]} studentAnswers={studentAnswers[currentStage]} onAnswer={onAnswer} />
       <TestFotter

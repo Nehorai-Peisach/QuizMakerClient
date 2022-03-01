@@ -1,93 +1,101 @@
-.hd {
-  background-color: royalblue;
-  padding: 1rem;
-  text-align: left;
-  .hd-title {
-    color: white;
-  }
-}
+.student_page {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 
-.bd {
-  padding: 1rem;
-  height: 70vh;
-  text-align: left;
-  .bd-title {
-  }
-
-  .ans {
-    .ans-container {
-      display: flex;
-      position: relative;
-      padding-left: 35px;
-      margin-bottom: 12px;
-      font-size: 22px;
-      user-select: none;
-      .ans-input {
-        position: absolute;
-        opacity: 0;
-        height: 0;
-        width: 0;
-      }
-      .ans-checkmark {
-        position: absolute;
-        top: 0.2rem;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-      }
-      .radio {
-        border-radius: 50%;
-      }
-      .checkbox {
-        border-radius: 0.3rem;
-      }
-      .ans-input:checked ~ .ans-checkmark:after {
-        display: block;
-      }
-
-      .ans-checkmark:after {
-        left: 10px;
-        top: 6px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        transform: rotate(45deg);
-      }
-    }
-
-    .ans-container:hover {
-      .ans-input ~ .ans-checkmark {
-        background-color: #ccc;
-      }
-    }
-    .ans-input:checked ~ .ans-checkmark {
-      background-color: #2196f3;
-    }
-    .ans-input:checked:hover ~ .ans-checkmark {
-      background-color: #2196f3;
-    }
-    .ans-checkmark:after {
-      content: '';
-      position: absolute;
-      display: none;
-    }
-  }
-}
-
-.ft {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .ft-hr {
-    opacity: 1;
-    color: royalblue;
-    width: 80%;
-  }
-  .ft-title {
+  .hd {
+    height: 10%;
+    background-color: royalblue;
     padding: 1rem;
-    color: royalblue;
+    text-align: left;
+    .hd-title {
+      color: white;
+    }
+  }
+
+  .bd {
+    padding: 1rem;
+    height: 70%;
+    text-align: left;
+    .bd-title {
+    }
+
+    .ans {
+      .ans-container {
+        display: flex;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        font-size: 22px;
+        user-select: none;
+        .ans-input {
+          position: absolute;
+          opacity: 0;
+          height: 0;
+          width: 0;
+        }
+        .ans-checkmark {
+          position: absolute;
+          top: 0.2rem;
+          left: 0;
+          height: 25px;
+          width: 25px;
+          background-color: #eee;
+        }
+        .radio {
+          border-radius: 50%;
+        }
+        .checkbox {
+          border-radius: 0.3rem;
+        }
+        .ans-input:checked ~ .ans-checkmark:after {
+          display: block;
+        }
+
+        .ans-checkmark:after {
+          left: 10px;
+          top: 6px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      .ans-container:hover {
+        .ans-input ~ .ans-checkmark {
+          background-color: #ccc;
+        }
+      }
+      .ans-input:checked ~ .ans-checkmark {
+        background-color: #2196f3;
+      }
+      .ans-input:checked:hover ~ .ans-checkmark {
+        background-color: #2196f3;
+      }
+      .ans-checkmark:after {
+        content: '';
+        position: absolute;
+        display: none;
+      }
+    }
+  }
+
+  .ft {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    .ft-hr {
+      opacity: 1;
+      color: royalblue;
+      width: 80%;
+    }
+    .ft-title {
+      padding: 1rem;
+      color: royalblue;
+    }
   }
 }
