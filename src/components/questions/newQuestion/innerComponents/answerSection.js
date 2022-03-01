@@ -30,7 +30,7 @@ const AnswerSection = (props) => {
     if (type === 'single') {
       let check = true;
       answers.forEach((x) => {
-        if (x.isCorrect) check = false;
+        if (x.is_correct) check = false;
       });
       if (check) setState((pre) => !pre);
     } else {
@@ -42,8 +42,8 @@ const AnswerSection = (props) => {
       {answers.map((item) => (
         <Answer item={item} deleteAnswer={deleteAnswer} />
       ))}
-      <InputComponent value={value} setValue={setValue} placeholder="Enter question" isRequired={false}>
-        Question's text:
+      <InputComponent value={value} setValue={setValue} placeholder="Enter answer..." isRequired={false}>
+        Answer's text:
       </InputComponent>
       <div className="answers__btns center">
         <input type="checkbox" onClick={stateHandler} checked={state} />

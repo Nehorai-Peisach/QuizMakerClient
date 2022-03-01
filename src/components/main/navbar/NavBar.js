@@ -32,8 +32,8 @@ const list = [
   },
 ];
 const bot = { name: 'Log Out', icon: VscSignOut };
-
 const NavBar = (props) => {
+  const botClick = () => props.setUser();
   const navigate = (event) => {
     props.navigate(event);
   };
@@ -43,7 +43,7 @@ const NavBar = (props) => {
         <NavBrand name={brand.name} icon={brand.icon} navHandler={props.navHandler} />
         <div className="nav__container">
           <NavList items={list} navigate={navigate} navHandler={props.navHandler} isActive={props.isActive} />
-          <NavBot name={bot.name} icon={bot.icon} />
+          <NavBot name={bot.name} icon={bot.icon} onClick={botClick} />
         </div>
       </nav>
     </div>

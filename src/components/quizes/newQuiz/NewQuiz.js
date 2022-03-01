@@ -50,7 +50,7 @@ const NewQuiz = (props) => {
     };
     if (id != undefined) quiz._id = id;
     (await AddQuiz(quiz))
-      ? props.changeComponent(<Home changeComponent={props.changeComponent} />)
+      ? props.changeComponent(<Home changeComponent={props.changeComponent} user={props.user} />)
       : Alerter('somthing went worng... cant all quiz');
   };
 

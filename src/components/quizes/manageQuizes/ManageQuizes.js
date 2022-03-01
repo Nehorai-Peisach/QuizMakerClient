@@ -21,6 +21,7 @@ const ManageQuizes = (props) => {
     props.changeComponent(
       <NewQuiz
         changeComponent={props.changeComponent}
+        user={props.user}
         id={obj._id}
         language={obj.language}
         type={obj.type}
@@ -39,6 +40,7 @@ const ManageQuizes = (props) => {
     props.changeComponent(
       <NewQuiz
         changeComponent={props.changeComponent}
+        user={props.user}
         language={obj.language}
         type={obj.type}
         name={obj.name}

@@ -2,6 +2,7 @@
 
 /*===== VARIABLES CSS =====*/
 :root {
+  font-size: 20px;
   --nav-width: 5.5rem;
   --header-height: 10vh;
 
@@ -17,35 +18,6 @@
   --body-font: 'Poppins', sans-serif;
   --normal-font-size: 1rem;
   --small-font-size: 0.875rem;
-
-  /*===== z index \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  .0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000045r=====*/
   --z-fixed: 100;
 }
 
@@ -61,7 +33,7 @@ body {
   padding: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  transition: 0.5s;
+  transition: 0.2s;
 }
 h1 {
   margin: 0;
@@ -78,4 +50,25 @@ a:focus,
 a:link,
 a:visited {
   text-decoration: none;
+}
+
+@media (min-width: 500px) {
+  :root {
+    font-size: 10px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    font-size: 17px;
+  }
 }

@@ -1,25 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const SingleAnswer = (props) => {
-
-const[Ui,setUi]=useState(props.studentAnswers);
-
-
-useEffect(()=>{
-  setUi(props.answers)
-},[props])
-
-  const onAnswerSelect = (answer,index) => {
-    setUi((pre)=>{
-      let tmp=[];
-      pre.forEach(element => {
-        tmp.push(false);
-      });
-      tmp[index]=true;
-      return tmp;
-    })
-    props.onAnswerSelect([answer]);
-
+  const onAnswerSelect = (index) => {
+    let tmpList = props.studentAnswers.map(() => false);
+    tmpList[index] = !tmpList[index];
+    props.onAnswerSelect(tmpList);
   };
 
   return (
@@ -31,9 +16,9 @@ useEffect(()=>{
               type="radio"
               name="ans"
               className="ans-input"
-              checked={Ui[index]}
+              checked={props.studentAnswers[index]}
               onChange={() => {
-                onAnswerSelect(answer,index);
+                onAnswerSelect(index);
               }}
             ></input>
             <span className="ans-checkmark radio"></span>

@@ -1,16 +1,11 @@
-import TestHeader from "./testHeader";
-import TestBody from "./testBody";
-import TestFotter from "./testFotter";
-import { useEffect, useState } from "react";
+import TestHeader from './testHeader';
+import TestBody from './testBody';
+import TestFotter from './testFotter';
+import { useEffect, useState } from 'react';
 
 const QuestionsComponent = (props) => {
   const [currentStage, setCurrentStage] = useState(0);
   const [studentAnswers, setStudentAnswers] = useState([]);
-  const [currentAnswer, setCurrentAnswer] = useState();
-
-  useEffect(() => {
-    setCurrentAnswer(studentAnswers[currentStage]);
-  }, [studentAnswers, currentStage]);
 
   useEffect(() => {
     const tmpall = [];
@@ -25,33 +20,20 @@ const QuestionsComponent = (props) => {
   }, []);
 
   const onAnswer = (studentAnswer) => {
-    props.quiz.questions[currentStage].answers.forEach((x, i) => {
-      studentAnswer.answers.forEach((answer) => {
-        setStudentAnswers((pre) => {
-          pre[currentStage].forEach((a) => (a = false));
-          setCurrentAnswer(pre[currentStage]);
-          return pre;
-        });
-        if (x._id === answer._id) {
-          setStudentAnswers((pre) => {
-            pre[currentStage][i] = true;
-            return pre;
-          });
-        }
-      });
-    });
+    setStudentAnswers((pre) =>
+      pre.map((x, i) => {
+        if (props.quiz.questions[i]._id === studentAnswer.question_id) return studentAnswer.answers;
+        else return x;
+      })
+    );
   };
 
   const nextQuestion = () => {
-    setCurrentStage((prevState) => {
-      return prevState + 1;
-    });
+    setCurrentStage((prevState) => prevState + 1);
   };
   const previosQuestion = () => {
     if (currentStage > 0) {
-      setCurrentStage((prevState) => {
-        return prevState - 1;
-      });
+      setCurrentStage((prevState) => prevState - 1);
     }
   };
 
@@ -75,11 +57,7 @@ const QuestionsComponent = (props) => {
   return (
     <div>
       <TestHeader header={props.quiz.header} />
-      <TestBody
-        question={props.quiz.questions[currentStage]}
-        answers={currentAnswer}
-        onAnswer={onAnswer}
-      />
+      <TestBody question={props.quiz.questions[currentStage]} studentAnswers={studentAnswers[currentStage]} onAnswer={onAnswer} />
       <TestFotter
         onNext={nextQuestion}
         onPrevios={previosQuestion}

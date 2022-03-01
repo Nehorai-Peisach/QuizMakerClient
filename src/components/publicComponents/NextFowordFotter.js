@@ -28,7 +28,7 @@ const NextFowordFotter = (props) => {
   }, [props.currentStage]);
 
   return (
-    <div className="center">
+    <div className="create__fotter">
       <>{previos}</>
       <>{next}</>
     </div>

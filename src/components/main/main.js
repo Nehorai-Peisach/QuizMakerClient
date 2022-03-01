@@ -23,11 +23,11 @@ const Main = (props) => {
     <div>
       {props.user ? (
         <div>
-          <NavBar className={navClass} navHandler={navHandler} navigate={navigate} isActive={isActive} />
+          <NavBar className={navClass} navHandler={navHandler} navigate={navigate} isActive={isActive} setUser={props.setUser} />
           <div className={CompClass}>{props.children}</div>
         </div>
       ) : (
-        <Login LogedIn={props.setUser} />
+        <Login LogedIn={props.setUser}/>
       )}
     </div>
   );

@@ -25,6 +25,7 @@ const ManageQuestions = (props) => {
     props.changeComponent(
       <NewQuestion
         changeComponent={props.changeComponent}
+        user={props.user}
         id={obj._id}
         type={obj.type}
         text={obj.text}
@@ -38,6 +39,7 @@ const ManageQuestions = (props) => {
     props.changeComponent(
       <NewQuestion
         changeComponent={props.changeComponent}
+        user={props.user}
         type={obj.type}
         text={obj.text}
         lowerText={obj.lower_text}

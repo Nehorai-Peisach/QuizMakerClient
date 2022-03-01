@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const MultiAnswer = (props) => {
-  
-
-
   const onAnswerSelect = (index) => {
     let tmpList = props.studentAnswers;
     tmpList[index] = !tmpList[index];
     props.onAnswerSelect(tmpList);
   };
+
   return (
     <div className="ans">
       {props.studentAnswers &&

@@ -39,7 +39,7 @@ const NewQuestion = (props) => {
     if (id != undefined) question._id = id;
     !AddQuestion(question)
       ? Alerter('somthing went worng... cant all question')
-      : props.changeComponent(<Home changeComponent={props.changeComponent} />);
+      : props.changeComponent(<Home changeComponent={props.changeComponent} user={props.user} />);
   };
 
   const firstInputs = [type, onType, text, onText, lowerText, onLowerText, tags, onTags];
@@ -60,7 +60,7 @@ const NewQuestion = (props) => {
       });
     }
   };
-  
+
   const previosPageStage = () => {
     if (currentPageStage > 0) {
       setCurrentPageStage((prevState) => {

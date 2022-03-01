@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 /*===== VARIABLES CSS =====*/
 :root {
+  font-size: 20px;
   --nav-width: 5.5rem;
   --header-height: 10vh;
   /*===== Colores =====*/
@@ -15,34 +16,6 @@
   --body-font: 'Poppins', sans-serif;
   --normal-font-size: 1rem;
   --small-font-size: 0.875rem;
-  /*===== z index \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  .0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000045r=====*/
   --z-fixed: 100; }
 
 /*===== BASE =====*/
@@ -57,7 +30,7 @@ body {
   padding: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  transition: 0.5s; }
+  transition: 0.2s; }
 
 h1 {
   margin: 0; }
@@ -75,12 +48,28 @@ a:link,
 a:visited {
   text-decoration: none; }
 
+@media (min-width: 500px) {
+  :root {
+    font-size: 10px; } }
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 12px; } }
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 15px; } }
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 17px; } }
+
 .page_header {
   width: 100%;
-  height: var(--header-height);
+  max-height: 5%;
   background-color: var(--page-header-bg-color);
   margin-bottom: 1rem;
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: bold;
   color: black;
   display: flex;
@@ -565,13 +554,15 @@ a:visited {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
-  .create__body__page {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    height: 80vh; }
-    .create__body__page__field {
-      margin-bottom: 1rem; }
+  .create__body {
+    max-height: 80%; }
+    .create__body__page {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      height: 80vh; }
+      .create__body__page__field {
+        margin-bottom: 1rem; }
   .create__fotter {
     align-self: center; }
 
@@ -589,7 +580,7 @@ a:visited {
   background-color: var(--page-bg-color); }
 
 .table__body {
-  max-height: 66.9vh;
+  height: 60vh;
   padding: 0 1rem;
   overflow: auto; }
   .table__body table {

@@ -11,6 +11,7 @@ const StudentPage = (props) => {
   const [student, setStudent] = useState();
   const [quiz, setQuiz] = useState({});
   const [finish, setFinish] = useState();
+  
   useEffect(async () => {
     const tmpQuiz = await GetQuiz(quizId);
     setQuiz(tmpQuiz);

@@ -1,9 +1,10 @@
 .page_header {
   width: 100%;
-  height: var(--header-height);
+  max-height: 5%;
+
   background-color: var(--page-header-bg-color);
   margin-bottom: 1rem;
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: bold;
   color: black;
 
