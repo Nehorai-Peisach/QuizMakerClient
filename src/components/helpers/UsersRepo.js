@@ -1,8 +1,12 @@
 import axios from 'axios';
+const config = require('../config/default.json');
+
+const serverUrl = config.server;
+const getUserByDetails = serverUrl + '/' + config.api.getUserByDetails;
 
 export const GetUsers = async (param) => {
   let result;
-  await axios.get('http://localhost:4000/api/users/getUserByDetails', param).then((res) => {
+  await axios.get(getUserByDetails, param).then((res) => {
     result = res.data;
   });
 

@@ -1,0 +1,18 @@
+{
+  "server": "http://localhost:4000",
+  "api": {
+    "addCompletedQuiz": "api/completedQuizes/addCompletedQuiz",
+    "getAllQuestions": "api/questions/getAllQuestions",
+    "addQuestion": "api/questions/addQuestion",
+    "deleteQuestion": "api/questions/deleteQuestion",
+    "getAllQuizes": "api/quizes/getAllQuizes",
+    "getQuizById": "api/quizes/getQuizById",
+    "addQuiz": "api/quizes/addQuiz",
+    "deleteQuiz": "api/quizes/deleteQuiz",
+    "getReportByQuiz": "api/reports/getReportByQuiz",
+    "getReportByStudent": "api/reports/getReportByStudent",
+    "getAllStudents": "api/students/getAllStudents",
+    "addStudent": "api/students/addStudent",
+    "getUserByDetails": "api/users/getUserByDetails"
+  }
+}

@@ -1,8 +1,14 @@
 import axios from 'axios';
+const config = require('../config/default.json');
+
+const serverUrl = config.server;
+const getAllQuestions = serverUrl + '/' + config.api.getAllQuestions;
+const addQuestion = serverUrl + '/' + config.api.addQuestion;
+const deleteQuestion = serverUrl + '/' + config.api.deleteQuestion;
 
 export const GetQuestions = async () => {
   let result;
-  await axios.get('http://localhost:4000/api/questions/getAllQuestions').then((res) => {
+  await axios.get(getAllQuestions).then((res) => {
     result = res.data;
   });
   return result;
@@ -11,7 +17,7 @@ export const GetQuestions = async () => {
 export const AddQuestion = async (question) => {
   let result;
   await axios
-    .post('http://localhost:4000/api/questions/addQuestion', question)
+    .post(addQuestion, question)
     .then(() => (result = true))
     .catch(() => (result = false));
 
@@ -21,7 +27,7 @@ export const AddQuestion = async (question) => {
 export const DeleteQuestion = async (question) => {
   let result;
   await axios
-    .post('http://localhost:4000/api/questions/deleteQuestion', question)
+    .post(deleteQuestion, question)
     .then(() => (result = true))
     .catch(() => (result = false));
 

@@ -28,6 +28,7 @@ const NewQuestion = (props) => {
 
   const onSubmitHandler = () => {
     if (!QuestionValidator(text, answers)) return;
+    
     let tmp = tags.trim().toLowerCase().split(',');
     const question = {
       type: type,

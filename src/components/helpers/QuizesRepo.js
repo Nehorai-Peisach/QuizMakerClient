@@ -1,8 +1,15 @@
 import axios from 'axios';
+const config = require('../config/default.json');
+
+const serverUrl = config.server;
+const getAllQuizes = serverUrl + '/' + config.api.getAllQuizes;
+const getQuizById = serverUrl + '/' + config.api.getQuizById;
+const addQuiz = serverUrl + '/' + config.api.addQuiz;
+const deleteQuiz = serverUrl + '/' + config.api.deleteQuiz;
 
 export const GetQuizes = async () => {
   let result;
-  await axios.get('http://localhost:4000/api/quizes/getAllQuizes').then((res) => {
+  await axios.get(getAllQuizes).then((res) => {
     result = res.data;
   });
 
@@ -11,7 +18,7 @@ export const GetQuizes = async () => {
 export const GetQuiz = async (quizId) => {
   let result;
   await axios
-    .get('http://localhost:4000/api/quizes/getQuizById', {
+    .get(getQuizById, {
       params: {
         id: quizId,
       },
@@ -26,7 +33,7 @@ export const GetQuiz = async (quizId) => {
 export const AddQuiz = async (quiz) => {
   let result;
   await axios
-    .post('http://localhost:4000/api/quizes/addQuiz', quiz)
+    .post(addQuiz, quiz)
     .then(() => (result = true))
     .catch(() => (result = false));
 
@@ -36,7 +43,7 @@ export const AddQuiz = async (quiz) => {
 export const DeleteQuiz = async (quiz) => {
   let result;
   await axios
-    .post('http://localhost:4000/api/quizes/deleteQuiz', quiz)
+    .post(deleteQuiz, quiz)
     .then(() => (result = true))
     .catch(() => (result = false));
 

@@ -1,8 +1,14 @@
 import axios from 'axios';
+const config = require('../config/default.json');
+
+const serverUrl = config.server;
+const getReportByQuiz = serverUrl + '/' + config.api.getReportByQuiz;
+const getAllStudents = serverUrl + '/' + config.api.getAllStudents;
+const getReportByStudent = serverUrl + '/' + config.api.getReportByStudent;
 
 export const GetReportByQuiz = async (param) => {
   let result;
-  await axios.get('http://localhost:4000/api/reports/getReportByQuiz',param).then((res) => {
+  await axios.get(getReportByQuiz, param).then((res) => {
     result = res.data;
   });
   return result;
@@ -10,7 +16,7 @@ export const GetReportByQuiz = async (param) => {
 
 export const GetAllStudent = async (param) => {
   let result;
-  await axios.get('http://localhost:4000/api/students/getAllStudents',param).then((res) => {
+  await axios.get(getAllStudents, param).then((res) => {
     result = res.data;
   });
   return result;
@@ -18,7 +24,7 @@ export const GetAllStudent = async (param) => {
 
 export const GetReportByStudent = async (param) => {
   let result;
-  await axios.get('http://localhost:4000/api/reports/getReportByStudent',param).then((res) => {
+  await axios.get(getReportByStudent, param).then((res) => {
     result = res.data;
   });
   return result;
