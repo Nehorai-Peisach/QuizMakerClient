@@ -6,10 +6,6 @@ const Columns = [
     accessor: '_id',
   },
   {
-    Header: 'Quiz Id',
-    accessor: 'quiz._id',
-  },
-  {
     Header: 'Quiz Name',
     accessor: 'quiz.name',
   },

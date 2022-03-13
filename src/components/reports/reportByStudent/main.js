@@ -1,10 +1,9 @@
-import Alerter from 'components/helpers/Alerter';
 import Loading from 'components/publicComponents/Loading';
 import React, { useEffect, useState } from 'react';
 import CreateBody from '../../publicComponents/CreateBody';
 import FirstStudentReportTable from './FirstStudentReport/FirstStudentReportTable';
 import SecondStudentReportTable from './SecondStudentReport/SecondStudentReportTable';
-import ThirdStudentReport from './ThirdStudentReport/ThirdStudentReport';
+import ThirdStudentReportTable from '../ThirdReport/ThirdReportTable';
 const { GetAllStudent } = require('../../helpers/ReportRepo');
 const { GetReportByStudent } = require('../../helpers/ReportRepo');
 
@@ -34,16 +33,16 @@ const Main = () => {
     setStudentQuizes(tmp);
   };
 
-  // const [selectedQuiz, setSelectedQuiz] = useState();
+  const [selectedQuiz, setSelectedQuiz] = useState();
   const onSelectedQuiz = (complitedQuiz) => {
-    //   setThirdPadeHeade(complitedQuiz.quiz.name);
-    //   setSelectedQuiz(complitedQuiz);
-    //   setPageState(2);
+    setThirdPadeHeade(`${currentStudent.first_name} ${currentStudent.last_name}: ${complitedQuiz.quiz.name}`);
+    setSelectedQuiz(complitedQuiz);
+    setPageState(2);
   };
 
   const firstStudentReportInputs = [students, onGenerateReport, setCurrentStudent, setPageState];
   const secondStudentReportInputs = [studentQuizes, onSelectedQuiz];
-  // const thirdStudentReportInputs = [selectedQuiz];
+  const thirdStudentReportInputs = [selectedQuiz];
   const pageStages = [
     {
       header: 'Student Report',
@@ -53,10 +52,10 @@ const Main = () => {
       header: secondPadeHeade,
       page: <SecondStudentReportTable inputs={secondStudentReportInputs} />,
     },
-    // {
-    //   header: thirdPadeHeade,
-    //   page: <ThirdStudentReport inputs={thirdStudentReportInputs} />,
-    // },
+    {
+      header: thirdPadeHeade,
+      page: <ThirdStudentReportTable inputs={thirdStudentReportInputs} />,
+    },
   ];
 
   return (

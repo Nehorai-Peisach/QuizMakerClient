@@ -4,6 +4,7 @@ import { GetQuiz } from 'components/helpers/QuizesRepo';
 import { SubmitQuiz } from 'components/helpers/ComplitedQuizesRepo';
 import QuestionsComponent from './doQuiz/questionComp';
 import Login from './login/Login';
+import Finished from './finished/Finished';
 
 const StudentPage = (props) => {
   const { quizId } = useParams();
@@ -11,7 +12,7 @@ const StudentPage = (props) => {
   const [student, setStudent] = useState();
   const [quiz, setQuiz] = useState({});
   const [finish, setFinish] = useState();
-  
+
   useEffect(async () => {
     const tmpQuiz = await GetQuiz(quizId);
     setQuiz(tmpQuiz);
@@ -36,7 +37,11 @@ const StudentPage = (props) => {
     <div>
       {isLoged ? (
         finish ? (
-          <div className="student__finish_page">{finish}</div>
+          finish.is_pass ? (
+            <Finished score={finish.score} quiz={finish.quiz} msg={finish.quiz.quiz.success_msg} />
+          ) : (
+            <div className="student__finish_page">{finish.quiz.quiz.fail_msg}</div>
+          )
         ) : (
           <QuestionsComponent quiz={quiz} onSubmit={finishQuiz} />
         )

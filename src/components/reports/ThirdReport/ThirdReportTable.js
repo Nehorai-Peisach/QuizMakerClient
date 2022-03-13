@@ -1,20 +1,31 @@
-import Searchbar from 'components/publicComponents/table/Searchbar';
-import Columns from './reportColumns';
 import { useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
-import Pagination from '../../publicComponents/table/Pagination';
-import ReportQuizSummary from './reportQuizSummary';
+import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table';
+import Searchbar from 'components/publicComponents/table/Searchbar';
+import Pagination from 'components/publicComponents/table/Pagination';
+import Columns from './ThirdReportColumns';
 
-const Report = (props) => {
-  const [startDate, endDate, quizesList, any, setSelectedQuiz] = props.inputs;
-  const data = useMemo(() => quizesList, []);
+const Table = (props) => {
+  const [selectedQuiz] = props.inputs;
+
+  const tmpData = [];
+  selectedQuiz.student_answers.forEach((answer) => {
+    const question = selectedQuiz.quiz.questions.find((x) => x._id === answer.question_id);
+    tmpData.push({
+      question: question,
+      answers: answer.answers,
+      currects: question.answers.filter((x) => x.is_correct === true),
+    });
+  });
+  const data = useMemo(() => tmpData, []);
   const columns = useMemo(() => Columns, []);
+
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
     state,
+    setGlobalFilter,
     page,
     pageOptions,
     gotoPage,
@@ -28,15 +39,17 @@ const Report = (props) => {
       data,
       initialState: { pageIndex: 0 },
     },
+    useGlobalFilter,
     useSortBy,
     usePagination
   );
 
-  const inputs = [data[0].quiz, data, startDate, endDate, any];
+  const { globalFilter } = state;
 
   return (
     <div>
-      <ReportQuizSummary data={inputs} />
+      <Searchbar filter={globalFilter} setFilter={setGlobalFilter} />
+      <div className="center"></div>
       <div className="table__body">
         <table {...getTableProps()}>
           <thead>
@@ -55,14 +68,24 @@ const Report = (props) => {
             {page.map((row, i) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()} onClick={() => setSelectedQuiz(row.original)}>
+                <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
-
                     switch (index) {
-                      case 0:
+                      case 1:
+                      case 2:
                         return (
                           <td className="td__minimum" {...cell.getCellProps()}>
-                            {i + 1}
+                            {cell.value.map((x) => x.text + ', ')}
+                          </td>
+                        );
+                      case 3:
+                        let tmp = true;
+                        row.cells[1].value.forEach((x, i) => {
+                          if (x.text != row.cells[2].value[i].text) tmp = false;
+                        });
+                        return (
+                          <td className="td__minimum" {...cell.getCellProps()}>
+                            {tmp.toString()}
                           </td>
                         );
                       default:
@@ -90,4 +113,4 @@ const Report = (props) => {
   );
 };
 
-export default Report;
+export default Table;
